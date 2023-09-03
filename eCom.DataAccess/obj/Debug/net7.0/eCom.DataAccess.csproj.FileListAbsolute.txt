@@ -1,0 +1,51 @@
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.AssemblyReference.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.AssemblyInfo.cs
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.deps.json
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.runtimeconfig.json
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.pdb
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.Models.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.Models.pdb
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.CopyComplete
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\refint\eCom.DataAccess.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.pdb
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.genruntimeconfig.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\ref\eCom.DataAccess.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.deps.json
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.runtimeconfig.json
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.pdb
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.Models.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.Models.pdb
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.AssemblyReference.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.AssemblyInfoInputs.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.AssemblyInfo.cs
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.CoreCompileInputs.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.CopyComplete
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\refint\eCom.DataAccess.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.pdb
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.genruntimeconfig.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.DataAccess\obj\Debug\net7.0\ref\eCom.DataAccess.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.deps.json
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.runtimeconfig.json
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.DataAccess.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.Models.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\bin\Debug\net7.0\eCom.Models.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.AssemblyReference.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.AssemblyInfoInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.AssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.csproj.CopyComplete
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\refint\eCom.DataAccess.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\eCom.DataAccess.genruntimeconfig.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.DataAccess\obj\Debug\net7.0\ref\eCom.DataAccess.dll

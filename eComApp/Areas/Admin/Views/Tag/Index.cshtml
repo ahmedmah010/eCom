@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Tag>
+
+
+@{
+    ViewData["Title"] = "Tag List";
+}
+<div class="mb-4" style="display:flex;justify-content:space-between;align-items:center">
+    <h2>Tags</h2>
+    <a asp-area="Admin" asp-controller="Tag" asp-action="Upsert" class="btn btn-success">Add Tag</a>
+</div>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Related Products</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model)
+        {
+            <tr>
+                <th scope="row">@tag.Id</th>
+                <td>@tag.Name</td>
+                <td>@tag.ProdTag.Count</td>
+                <td>
+                    <a asp-controller="Tag" asp-action="Upsert" asp-route-Id="@tag.Id" class="btn btn-primary">Edit</a>
+                    <a asp-controller="Tag" asp-action="Delete" asp-route-Id="@tag.Id" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

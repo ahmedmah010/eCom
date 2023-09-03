@@ -1,0 +1,73 @@
+﻿@model ProductVM
+@{
+    ViewData["Title"] = Model.Id == 0 ? "New Product" : "Update Product";
+}
+
+
+@if (Model.Id == 0)
+{
+    <h1>New Product</h1>
+}
+else {
+    <h1>Update Product</h1>
+}
+
+
+<form method="post" enctype="multipart/form-data">
+    
+    <div class="form-group mb-3">
+        <input asp-for="Title" class="form-control" placeholder="Title">
+        <span class="text-danger" asp-validation-for="Title"></span>
+    </div>
+    <div class="form-group mb-3">
+        <input asp-for="Brand" class="form-control" placeholder="Brand">
+    </div>
+    <div class="form-group mb-3">
+        <input asp-for="Description" class="form-control" placeholder="Description">
+    </div>
+    <div class="form-group mb-3">
+        <label class="mb-1">Quantity</label>
+        <input asp-for="CurrentQuantity" class="form-control" placeholder="Quantity">
+    </div>
+    <div class="form-group mb-3">
+        <label class="mb-1">Price</label>
+        <input asp-for="OldPrice" class="form-control" placeholder="Price">
+    </div>
+    <div class="form-group mb-3">
+        <input asp-for="Discount" class="form-control" placeholder="Discount">
+        <small>Enter the amount of Discount in EGP. Leave blank or set zero if there's no discount.</small>
+    </div>
+    <div class="form-group mb-3">
+        <label class="mb-1">Images</label>
+        <input type="file" asp-for="Images" name="productImages" class="form-control" placeholder="Image" multiple accept="image/*">
+        @if(Model.Id!=0)
+        {
+            <small>Your product has @Model.Images.Count images</small>
+            @foreach(var img in Model.Images)
+            {
+                <img src="~/images/Prod_Id_@Model.Id/@img.Name" width="40px" height="40px" />
+            }
+        }
+        <br />
+        <small>You can select up to 4 images (jpg, jpeg, png) </small> <br />
+        <span class="text-danger" asp-validation-for="Images"></span>
+        
+    </div>
+    
+    <div class="form-group mb-3">
+        <select  asp-items="@Model.CategoriesList" asp-for="CategoryId" class="form-select">
+            <option selected disabled>--Category--</option>
+        </select>
+    </div>
+    <div class="form-group mb-3">
+        <select asp-for="SelectedTags" asp-items="@Model.TagsList" class="form-select" multiple>
+            <option disabled>--Tags--</option>
+        </select>
+    </div>
+
+  
+    
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+

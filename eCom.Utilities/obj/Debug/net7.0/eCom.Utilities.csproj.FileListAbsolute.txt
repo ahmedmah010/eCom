@@ -1,0 +1,36 @@
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.deps.json
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.pdb
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.csproj.AssemblyReference.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.AssemblyInfoInputs.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.AssemblyInfo.cs
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\refint\eCom.Utilities.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.pdb
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\ref\eCom.Utilities.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.deps.json
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.pdb
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.csproj.AssemblyReference.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.AssemblyInfoInputs.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.AssemblyInfo.cs
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.csproj.CoreCompileInputs.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\refint\eCom.Utilities.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.pdb
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Utilities\obj\Debug\net7.0\ref\eCom.Utilities.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.deps.json
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\bin\Debug\net7.0\eCom.Utilities.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.csproj.AssemblyReference.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.AssemblyInfoInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.AssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\refint\eCom.Utilities.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\eCom.Utilities.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Utilities\obj\Debug\net7.0\ref\eCom.Utilities.dll

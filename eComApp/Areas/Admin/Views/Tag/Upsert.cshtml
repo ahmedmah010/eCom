@@ -1,0 +1,14 @@
+﻿@model Tag
+
+@{
+    ViewData["Title"] = Model==null?"New Tag":"Update Tag";
+}
+
+
+<h1 class="mb-5">@(Model == null ? "Add Tag" : "Update Tag")</h1>
+
+<form method="post">
+    <input asp-for="Name" placeholder="Tag name"/>
+    <button class="btn btn-primary">@(Model==null?"Add":"Update")</button>
+    <a asp-controller="Tag" asp-action="Index" class="btn btn-primary">Go back</a>
+</form>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Products";
+}
+
+
+
+<div class="mb-4" style="display:flex;justify-content:space-between;align-items:center">
+    <h2>Products</h2>
+    <a asp-controller="Product" asp-action="Upsert" class="btn btn-success">Add Product</a>
+</div>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Brand</th>
+            <th>Category</th>
+            <th>Current Quantity</th>
+            <th>Old Price</th>
+            <th>Current Price</th>
+            <th>Discount</th>
+            <th>Description</th>
+            <th>Tags</th>
+            <th>Images</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <th scope="row">@product.Id</th>
+                <td>@product.Title</td>
+                <td>@product.Brand</td>
+                <td>@product.Category.Name</td>
+                <td>@product.CurrentQuantity</td>
+                <td>@product.OldPrice</td>
+                <td>@product.CurrentPrice</td>
+                <td>@product.Discount</td>
+                <td>@product.Description</td>
+                <td>@product.Tags.Count</td>
+                <td>
+                    @foreach(var img in product.Images)
+                    {
+                        <img src="~/images/Prod_Id_@product.Id/@img.Name" width="40px" height="40px"/>
+                    }
+                </td>
+                <td>
+                    <a asp-controller="Product" asp-action="Upsert" asp-route-Id="@product.Id" class="btn btn-primary">Edit</a>
+                    <a asp-controller="Product" asp-action="RemoveProduct" asp-route-Id="@product.Id" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

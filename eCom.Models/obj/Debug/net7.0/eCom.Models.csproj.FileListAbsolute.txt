@@ -1,0 +1,36 @@
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.deps.json
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.pdb
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.csproj.AssemblyReference.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.AssemblyInfoInputs.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.AssemblyInfo.cs
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\refint\eCom.Models.dll
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.pdb
+C:\Users\Ahmed\Desktop\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\ref\eCom.Models.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.deps.json
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.pdb
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.csproj.AssemblyReference.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.GeneratedMSBuildEditorConfig.editorconfig
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.AssemblyInfoInputs.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.AssemblyInfo.cs
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.csproj.CoreCompileInputs.cache
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\refint\eCom.Models.dll
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.pdb
+G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eCom.Models\obj\Debug\net7.0\ref\eCom.Models.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.deps.json
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\bin\Debug\net7.0\eCom.Models.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.csproj.AssemblyReference.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.AssemblyInfoInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.AssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.csproj.CoreCompileInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\refint\eCom.Models.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\ref\eCom.Models.dll
