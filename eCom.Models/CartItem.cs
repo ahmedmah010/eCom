@@ -14,7 +14,7 @@ namespace eCom.Models
         public int ProductId { get; set; } 
 
         //Navigation Property
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
         
 
     }
