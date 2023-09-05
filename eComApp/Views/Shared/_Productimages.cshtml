@@ -1,0 +1,14 @@
+﻿@model List<ProductImage>
+
+
+<small>Your product has @Model.Count image(s)</small>
+@foreach (var img in Model)
+{
+    <img src="~/images/Prod_Id_@img.product.Id/@img.Name" width="40px" height="40px" />
+    <a type="button" class="btn btn-danger" onclick="delimg(@img.Id)">X</a>
+}
+
+
+
+
+

@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 
+
 namespace eComApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -89,8 +90,6 @@ namespace eComApp.Areas.Admin.Controllers
         /* End of helper methods */
         /* ////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-
-
         public IActionResult Index()
         {
             return View(_unitOfWork.product.GetAll());
@@ -107,6 +106,7 @@ namespace eComApp.Areas.Admin.Controllers
                     _vm.Title = product.Title;
                     _vm.Description = product.Description;
                     _vm.CurrentPrice = product.CurrentPrice;
+                    _vm.OldPrice = product.OldPrice;
                     _vm.CurrentQuantity = product.CurrentQuantity;
                     _vm.Brand = product.Brand;
                     _vm.Discount = product.Discount;
@@ -260,5 +260,31 @@ namespace eComApp.Areas.Admin.Controllers
                 return View(prod);
             }
         }
+
+        
+        public IActionResult DeleteProductImage(int id)
+        {
+            if(id!=0) 
+            {
+                var image = _unitOfWork.productImage.Get(i=>i.Id==id);
+                if(image!=null)
+                {
+                    var product = image.product;
+                    string imgpath = Path.Combine(_webHostEnvironment.WebRootPath, "images", $"Prod_Id_{product.Id}", image.Name);
+                    if(System.IO.File.Exists(imgpath))
+                    {
+                        System.IO.File.Delete(imgpath);
+                    }
+                    _unitOfWork.productImage.remove(image); 
+                   _unitOfWork.SaveChanges();
+
+                   return PartialView("_Productimages",product.Images);
+
+                }
+            }
+            return BadRequest();
+
+        }
+        
     }
 }

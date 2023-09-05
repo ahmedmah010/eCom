@@ -20,7 +20,7 @@ namespace eCom.Models
 
         public int OldPrice { get; set; }
 
-        public int? Discount { get; set; }
+        public int? Discount { get; set; } = 0;
         
         public string? Description { get; set; }
         

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "27vAh8bqyMYohJ1eDQfAQjmGjvfvOfA1KqyT2F8Kd6U=",
+  "Hash": "6WQjqeYsoWWPa7dSxu9hIhyuM2BBjVcExa5Nqz+aUvc=",
   "Source": "eComApp",
   "BasePath": "_content/eComApp",
   "Mode": "Default",
@@ -85,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\images\\Prod_Id_30\\5282c0ff-30f0-43e1-8648-579a7801b16e3.jpeg",
+      "Identity": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\images\\Prod_Id_36\\e5d90148-92d2-43b2-94a7-964dcfd78ce63.jpeg",
       "SourceId": "eComApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\",
       "BasePath": "_content/eComApp",
-      "RelativePath": "images/Prod_Id_30/5282c0ff-30f0-43e1-8648-579a7801b16e3.jpeg",
+      "RelativePath": "images/Prod_Id_36/e5d90148-92d2-43b2-94a7-964dcfd78ce63.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,41 +99,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Prod_Id_30\\5282c0ff-30f0-43e1-8648-579a7801b16e3.jpeg"
-    },
-    {
-      "Identity": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\images\\Prod_Id_30\\bf6b20e8-cee0-4ef0-a38c-ee48172be8562.jpeg",
-      "SourceId": "eComApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\",
-      "BasePath": "_content/eComApp",
-      "RelativePath": "images/Prod_Id_30/bf6b20e8-cee0-4ef0-a38c-ee48172be8562.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Prod_Id_30\\bf6b20e8-cee0-4ef0-a38c-ee48172be8562.jpeg"
-    },
-    {
-      "Identity": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\images\\Prod_Id_30\\e64a2de1-7e3c-421f-9186-80da8b053c591.jpeg",
-      "SourceId": "eComApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\",
-      "BasePath": "_content/eComApp",
-      "RelativePath": "images/Prod_Id_30/e64a2de1-7e3c-421f-9186-80da8b053c591.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Prod_Id_30\\e64a2de1-7e3c-421f-9186-80da8b053c591.jpeg"
+      "OriginalItemSpec": "wwwroot\\images\\Prod_Id_36\\e5d90148-92d2-43b2-94a7-964dcfd78ce63.jpeg"
     },
     {
       "Identity": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\js\\site.js",

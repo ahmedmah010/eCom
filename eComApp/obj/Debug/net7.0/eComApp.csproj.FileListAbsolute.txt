@@ -756,8 +756,10 @@ C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\runtimes\win\lib\n
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.DataAccess.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Models.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Utilities.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.DataAccess.pdb
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Models.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Utilities.pdb
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.AssemblyReference.cache
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfoInputs.cache
@@ -783,5 +785,3 @@ C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\refint\eComApp.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.pdb
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.genruntimeconfig.cache
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\ref\eComApp.dll
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Utilities.dll
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Utilities.pdb
