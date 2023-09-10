@@ -10,12 +10,26 @@ namespace eCom.Models
     {
         public int Id { get; set; }
         public int Qty { get; set; }
-        //ForiegnKey
-        public int ProductId { get; set; } 
+        public string Title { get; set; }
+        public string Brand { get; set; }
+        public string Img { get; set; }
+        public int ProductPrice { get; set; }
+        public int ProductId { get; set; }
+        public int SubTotal { get; set; }
 
-        //Navigation Property
-        public virtual Product Product { get; set; }
-        
+        public static int CreatedCartItems;
+        public static int TotalPrice=0;
+
+        public CartItem()
+        {
+            CreatedCartItems++;
+            this.Id = CreatedCartItems;
+        }
+        ~CartItem()
+        {
+            --CreatedCartItems;
+        } 
+
 
     }
 }

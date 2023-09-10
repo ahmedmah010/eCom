@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mBN9xqMg81m0sEmT4/6CNmNlHejp8gFkWHn0t7afAm0=",
+  "Hash": "HN8k8yrGAxhUsPiUkgkAWT9t1fJNpIY/JrkuwQjjQBA=",
   "Source": "eComApp",
   "BasePath": "_content/eComApp",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Prod_Id_36\\5a91fba8-3d4e-407f-bf79-3dab0e1ca0013.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\images\\Prod_Id_37\\4165687e-a432-48fb-b9b4-cea986cced162.jpeg",
+      "SourceId": "eComApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\",
+      "BasePath": "_content/eComApp",
+      "RelativePath": "images/Prod_Id_37/4165687e-a432-48fb-b9b4-cea986cced162.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Prod_Id_37\\4165687e-a432-48fb-b9b4-cea986cced162.jpeg"
     },
     {
       "Identity": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\wwwroot\\js\\site.js",

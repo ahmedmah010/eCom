@@ -25,6 +25,7 @@
             <th>Tags</th>
             <th>Images</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@
                 <td>
                     <a asp-controller="Product" asp-action="Upsert" asp-route-Id="@product.Id" class="btn btn-primary">Edit</a>
                     <a asp-controller="Product" asp-action="RemoveProduct" asp-route-Id="@product.Id" class="btn btn-danger">Delete</a>
+                    <a asp-area="Customer" asp-controller="Cart" asp-action="Add" asp-route-Id="@product.Id" class="btn btn-primary">Add to cart</a>
                 </td>
 
             </tr>

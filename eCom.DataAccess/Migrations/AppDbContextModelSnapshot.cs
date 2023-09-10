@@ -25,28 +25,6 @@ namespace eCom.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("eCom.Models.CartItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Qty")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
-
-                    b.ToTable("CartItems");
-                });
-
             modelBuilder.Entity("eCom.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -61,7 +39,7 @@ namespace eCom.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("eCom.Models.Product", b =>
@@ -103,7 +81,7 @@ namespace eCom.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("eCom.Models.ProductImage", b =>
@@ -125,7 +103,7 @@ namespace eCom.DataAccess.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImages");
+                    b.ToTable("ProductImages", (string)null);
                 });
 
             modelBuilder.Entity("eCom.Models.ProductTag", b =>
@@ -140,7 +118,7 @@ namespace eCom.DataAccess.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("ProductTag");
+                    b.ToTable("ProductTag", (string)null);
                 });
 
             modelBuilder.Entity("eCom.Models.Tag", b =>
@@ -157,18 +135,7 @@ namespace eCom.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tags");
-                });
-
-            modelBuilder.Entity("eCom.Models.CartItem", b =>
-                {
-                    b.HasOne("eCom.Models.Product", "Product")
-                        .WithOne()
-                        .HasForeignKey("eCom.Models.CartItem", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
+                    b.ToTable("Tags", (string)null);
                 });
 
             modelBuilder.Entity("eCom.Models.Product", b =>
