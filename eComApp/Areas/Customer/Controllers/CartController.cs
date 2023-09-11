@@ -25,6 +25,10 @@ namespace eComApp.Areas.Customer.Controllers
             {
                 cartItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["CartData"]);
             }
+            else
+            {
+                CartItem.TotalPrice = 0;
+            }
    
             return View(cartItems);
         }
