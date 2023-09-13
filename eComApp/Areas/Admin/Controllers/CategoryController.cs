@@ -1,11 +1,12 @@
 ﻿using eCom.DataAccess.Repos.IRepos;
 using eCom.Models;
 using eCom.Models.ViewModels;
+using eCom.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eComApp.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area(Area.Admin)]
     public class CategoryController : Controller
     {
         private readonly IRepo<Category> _repo;

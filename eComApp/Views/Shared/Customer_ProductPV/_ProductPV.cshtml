@@ -1,0 +1,18 @@
+﻿@model List<Product>
+
+@foreach(var Product in Model)
+{
+    <div class="ProductCard">
+        <img src="~/images/Prod_Id_@Product.Id/@Product.Images[0].Name" />
+        <p class="Title">@Product.Title</p>
+        <p class="Brand">@Product.Brand</p>
+        <p class="Price"><span>EGP</span>@Product.CurrentPrice</p>
+        @if(Product.Discount!=null && Product.Discount!=0)
+        {
+            <div class="Discount">
+                <span>@Product.OldPrice</span><span>@(Math.Round(((float)Product.Discount / (float)Product.OldPrice) * 100))% OFF</span>
+            </div>
+        }
+
+    </div>
+}

@@ -24,6 +24,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Product" asp-action="Index">Products</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <div class="dropdown">
@@ -49,7 +52,7 @@
             @RenderBody()
         </main>
     </div>
-
+    @RenderSection("Products",false)
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - eComApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

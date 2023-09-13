@@ -13,7 +13,7 @@ namespace eCom.Models.ViewModels
     public class ProductVM
     {
         public int Id { get; set; }
-        [Required, MinLength(10, ErrorMessage = "Min length is 10 letters"), MaxLength(50, ErrorMessage = "Max length is 50 letters")]
+        [Required, MinLength(10, ErrorMessage = "Min length is 10 letters"), MaxLength(200, ErrorMessage = "Max length is 50 letters")]
         public string Title { get; set; }
         [Required]
         public string Brand { get; set; }

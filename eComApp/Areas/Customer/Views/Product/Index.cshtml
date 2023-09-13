@@ -1,0 +1,95 @@
+﻿@model CustomerProductsVM
+
+@section Products 
+{
+    <div class="Layout">
+        <div class="Control">
+            <div class="SortBy">
+                <span>SORT BY</span>
+                <select>
+                    <option selected value="0">Default</option>
+                    <option value="asc">Price Ascending</option>
+                    <option value="desc">Price Descending</option>
+                </select>
+            </div>
+            <div class="Pagination">
+                <span>DISPLAY</span>
+                <select>
+                    <option value="20">20 PER PAGE</option>
+                    <option value="40">40 PER PAGE</option>
+                    <option value="60">60 PER PAGE</option>
+                </select>
+            </div>
+        </div>
+        <hr />
+       
+
+        <div class="Products-Layout">
+
+            <div class="Filters">
+                <h3>Filters</h3>
+                <div class="Brand">
+                    <p>Brand</p>
+                    <input type="checkbox" />
+                    <label>Apple</label> <br />
+                    <input type="checkbox" />
+                    <label>Samsung</label> <br />
+                    <input type="checkbox" />
+                    <label>Xiaomi</label> <br />
+                </div>
+                <hr />
+                <div class="Category">
+                    <p>Categories</p>
+                    <div>
+                        @foreach(var Category in Model.Categories)
+                        {
+                            <button class="btn btn-primary">@Category.Name</button>
+                        }
+                    
+                    </div>
+                </div>
+                <hr />
+                <div class="Price">
+                    <p>Price</p>
+                    <span>From</span>
+                    <input type="number" />
+                    <span>To</span>
+                    <input type="number" />
+                </div>
+
+            </div>
+
+            <div class="Products" id="Products">
+                <partial name="~/Views/Shared/Customer_ProductPV/_ProductPV.cshtml" model="@Model.Products"/>
+            </div>
+        </div>
+        <div class="PaginationButtons">
+            <button onclick="Paginate(1)">1</button>
+            @for(int i = 2;i<=Model.PaginationButtons;++i)
+            {
+                <button onclick="Paginate(@i)">@i</button>
+            }
+        </div>
+      
+
+    </div>
+
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        function Paginate(PageNumber)
+        {
+            var pg = PageNumber;
+            var _url = '@Url.Action("Paginate","Product")';
+            $.ajax({
+                url:_url,
+                data: {"PageNumber":pg},
+                success: function(res)
+                {
+                    $("#Products").html(res);
+                }
+            });
+        }
+    </script>
+}

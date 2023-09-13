@@ -1,5 +1,6 @@
 ﻿using eCom.DataAccess.Data;
 using eCom.DataAccess.Repos.IRepos;
+using eCom.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
@@ -68,6 +69,14 @@ namespace eCom.DataAccess.Repos
         public void SaveChanges()
         {
             _db.SaveChanges();
+        }
+        public List<T> Pagination(int page, int pageSize)
+        {
+            return _db.Set<T>().Skip((page-1)*pageSize).Take(pageSize).ToList();
+        }
+        public int Count()
+        {
+            return _db.Set<T>().Count();
         }
     }
 }

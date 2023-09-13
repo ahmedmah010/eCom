@@ -1,10 +1,11 @@
 ﻿using eCom.DataAccess.Repos.IRepos;
 using eCom.Models;
+using eCom.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eComApp.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area(Area.Admin)]
     public class TagController : Controller
     {
         private readonly IRepo<Tag> _repo;

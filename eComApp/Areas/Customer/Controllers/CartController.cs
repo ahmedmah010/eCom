@@ -2,6 +2,7 @@
 using eCom.DataAccess.Data;
 using eCom.DataAccess.Migrations;
 using eCom.Models;
+using eCom.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text.Json.Nodes;
@@ -9,7 +10,7 @@ using System.Xml;
 
 namespace eComApp.Areas.Customer.Controllers
 {
-    [Area("Customer")]
+    [Area(Area.Customer)]
     public class CartController : Controller
     {
         private readonly AppDbContext _context;
@@ -24,12 +25,12 @@ namespace eComApp.Areas.Customer.Controllers
             if (Request.Cookies["CartData"]!=null)
             {
                 cartItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["CartData"]);
-            }
-            else
-            {
                 CartItem.TotalPrice = 0;
+                foreach(var Item in cartItems)
+                {
+                    CartItem.TotalPrice += Item.SubTotal;
+                }
             }
-   
             return View(cartItems);
         }
         public IActionResult Add(int Id)
@@ -81,10 +82,13 @@ namespace eComApp.Areas.Customer.Controllers
         {
             List<CartItem> cartItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["CartData"]);
             CartItem target = cartItems.Find(x => x.Id == id);
-            CartItem.TotalPrice = CartItem.TotalPrice == 0?0: CartItem.TotalPrice - target.SubTotal;
+            CartItem.TotalPrice -= target.SubTotal;
             cartItems.Remove(target);
             Response.Cookies.Delete("CartData");
-            Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), new CookieOptions { Expires = DateTime.Now.AddDays(15) });
+            if (cartItems.Count != 0)
+            {
+                Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), new CookieOptions { Expires = DateTime.Now.AddDays(15) });
+            }
             return RedirectToAction("Index");
         }
 

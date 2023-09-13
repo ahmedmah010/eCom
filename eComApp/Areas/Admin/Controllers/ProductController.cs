@@ -2,6 +2,7 @@
 using eCom.Models;
 using eCom.Models.EntityTypeConfiguration;
 using eCom.Models.ViewModels;
+using eCom.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,7 +13,7 @@ using System.Drawing.Printing;
 
 namespace eComApp.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area(Area.Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -49,7 +50,7 @@ namespace eComApp.Areas.Admin.Controllers
             {
                 return false;
             }
-            string[] allowedExtentions = { ".jpg", ".png", ".jpeg" };
+            string[] allowedExtentions = { ".jpg", ".png", ".jpeg",".webp"};
             string wwwrootPath = _webHostEnvironment.WebRootPath;
             string imagesPath = Path.Combine(wwwrootPath, "images");
             if (Directory.Exists(imagesPath))
