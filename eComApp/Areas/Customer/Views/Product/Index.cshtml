@@ -63,11 +63,14 @@
             </div>
         </div>
         <div class="PaginationButtons">
-            <button onclick="Paginate(1)">1</button>
-            @for(int i = 2;i<=Model.PaginationButtons;++i)
-            {
-                <button onclick="Paginate(@i)">@i</button>
-            }
+    
+               <a class="btn btn-primary" asp-area="Customer" asp-controller="Product" asp-action="Paginate" asp-route-PageNumber="1">1</a>
+
+                @for(int i = 2;i<=Model.PaginationButtons;++i)
+                {
+                <a class="btn btn-primary" asp-area="Customer" asp-controller="Product" asp-action="Paginate" asp-route-PageNumber="@i">@i</a>
+                }
+        
         </div>
       
 
@@ -77,24 +80,24 @@
 
 @section Scripts {
     <script type="text/javascript">
-        function Paginate(PageNumber)
-        {
-            var pg = PageNumber;
-            var _url = '@Url.Action("PaginatePV","Product")';
-            $.ajax({
-                url: _url,
-                data: {"PageNumber":pg},
-                success: function(res)
-                {
-                    $("#Products").html(res);
-                    window.history.pushState(`Product?PageNumber=${pg}`, "title", `Product?PageNumber=${pg}`)
-                }
-            });
+        //function Paginate(PageNumber)
+        //{
+        //    var pg = PageNumber;
+        //    var _url = '@Url.Action("PaginatePV","Product")';
+        //    $.ajax({
+        //        url: _url,
+        //        data: {"PageNumber":pg},
+        //        success: function(res)
+        //        {
+        //            $("#Products").html(res);
+        //            window.history.pushState(`Product?PageNumber=${pg}`, "title", `Product?PageNumber=${pg}`)
+        //        }
+        //    });
             
-        }
-        $(window).on("popstate", function (e) { //Allows back and foward browsers buttons to work properly
-           location.reload();
-        });
+        //}
+        //$(window).on("popstate", function (e) { //Allows back and foward browsers buttons to work properly
+        //   location.reload();
+        //});
         function ChooseCat(Category)
         {
             $('#ChosenCategory').val(Category).trigger('change');
