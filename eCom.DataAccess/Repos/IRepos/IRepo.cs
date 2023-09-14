@@ -20,7 +20,7 @@ namespace eCom.DataAccess.Repos.IRepos
         void update(T item);
         EntityEntry<T> GetEntity(T item);
         void SaveChanges();
-        List<T> Pagination(int page, int pageSize);
+        //List<T> Pagination(int page, int pageSize);
         int Count();
 
 

@@ -25,40 +25,39 @@
        
 
         <div class="Products-Layout">
-
-            <div class="Filters">
-                <h3>Filters</h3>
-                <div class="Brand">
-                    <p>Brand</p>
-                    <input type="checkbox" />
-                    <label>Apple</label> <br />
-                    <input type="checkbox" />
-                    <label>Samsung</label> <br />
-                    <input type="checkbox" />
-                    <label>Xiaomi</label> <br />
-                </div>
-                <hr />
-                <div class="Category">
-                    <p>Categories</p>
-                    <div>
-                        @foreach(var Category in Model.Categories)
+            <form id="FilterForm" asp-area="Customer" asp-controller="Product" asp-action="ProductFilter" method="GET">
+                <div class="Filters">
+                    <h3>Filters</h3>
+                    <div class="Brand">
+                        <p>Brand</p>
+                        @foreach(var Brand in Model.ProductFilterVM.Brands)
                         {
-                            <button class="btn btn-primary">@Category.Name</button>
+                            <input type="checkbox" name="Brands" value="@Brand.Value" checked="@Brand.IsChecked" onChange="this.form.submit()" />
+                            <label>@Brand.Value</label> <br />
                         }
-                    
                     </div>
-                </div>
-                <hr />
-                <div class="Price">
-                    <p>Price</p>
-                    <span>From</span>
-                    <input type="number" />
-                    <span>To</span>
-                    <input type="number" />
-                </div>
+                    <hr />
+                    <div class="Category">
+                        <p>Categories</p>
+                        <div>
+                            @foreach(var Category in Model.Categories)
+                            {
+                                <input onclick="ChooseCat(this.value)" class="btn btn-primary" value="@Category.Name"/>
+                            }
+                            <input type="text" id="ChosenCategory" onchange="this.form.submit()" name="Category" value="@Model.ProductFilterVM.Category" hidden />
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="Price">
+                        <p>Price</p>
+                        <span>From</span>
+                        <input type="number" />
+                        <span>To</span>
+                        <input type="number" />
+                    </div>
 
-            </div>
-
+                </div>
+            </form>
             <div class="Products" id="Products">
                 <partial name="~/Views/Shared/Customer_ProductPV/_ProductPV.cshtml" model="@Model.Products"/>
             </div>
@@ -81,15 +80,24 @@
         function Paginate(PageNumber)
         {
             var pg = PageNumber;
-            var _url = '@Url.Action("Paginate","Product")';
+            var _url = '@Url.Action("PaginatePV","Product")';
             $.ajax({
-                url:_url,
+                url: _url,
                 data: {"PageNumber":pg},
                 success: function(res)
                 {
                     $("#Products").html(res);
+                    window.history.pushState(`Product?PageNumber=${pg}`, "title", `Product?PageNumber=${pg}`)
                 }
             });
+            
+        }
+        $(window).on("popstate", function (e) { //Allows back and foward browsers buttons to work properly
+           location.reload();
+        });
+        function ChooseCat(Category)
+        {
+            $('#ChosenCategory').val(Category).trigger('change');
         }
     </script>
 }

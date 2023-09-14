@@ -12,5 +12,7 @@ namespace eCom.Models.ViewModels
         public List<Product> Products { get; set;}
 
         public int PaginationButtons { get; set; }
+
+        public ProductFilterVM ProductFilterVM { get; set; } = new ProductFilterVM();
     }
 }
