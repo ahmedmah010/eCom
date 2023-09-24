@@ -14,10 +14,10 @@
             </div>
             <div class="Pagination">
                 <span>DISPLAY</span>
-                <select>
-                    <option value="20">20 PER PAGE</option>
-                    <option value="40">40 PER PAGE</option>
-                    <option value="60">60 PER PAGE</option>
+                <select onchange="ChangePerPage(this.value)" asp-for="@Model.ProductFilterVM.Display">
+                    <option selected value="3">3 PER PAGE</option>
+                    <option value="2">2 PER PAGE</option>
+                    <option value="1">1 PER PAGE</option>
                 </select>
             </div>
         </div>
@@ -46,8 +46,9 @@
                                 <input type="button" onclick="ChooseCat(this.value)" class="btn btn-primary" value="@Category.Name"/>
                             }
                             <input type="text" id="ChosenCategory" onchange="this.form.submit()" name="Category" value="@Model.ProductFilterVM.Category" hidden />
-                            <input type="text" id="ChosenPage" onchange="this.form.submit()" name="PageNumber" value="1" hidden />
+                            <input type="text" id="ChosenPage" onchange="this.form.submit()" name="PageNumber" value="" hidden />
                             <input type="text" id="ChosenSortBy" onchange="this.form.submit()" name="SortBy" value="@Model.ProductFilterVM.SortBy" hidden />
+                            <input type="text" id="ChosenPerPage" onchange="this.form.submit()" name="Display" value="@Model.ProductFilterVM.Display" hidden />
                             
                         </div>
                     </div>
@@ -115,17 +116,31 @@
         {
             $('#ChosenSortBy').val(value).trigger('change');
         }
-        
-        function DisableNullFields()
-        {
-            $('input').each(function(){
-                var inp = $(this);
-                if (inp.val() == '')
-                {inp.attr('disabled', 'disabled');}
-                $("#FilterForm").submit(function () {
-                    alert("Submitted");
-                });
-            });
+        function ChangePerPage(value) {
+            $('#ChosenPerPage').val(value).trigger('change');
         }
+        
+        //function DisableNullFields()
+        //{
+        //    $('input').each(function(){
+        //        var inp = $(this);
+        //        if (inp.val() == '')
+        //        {inp.attr('disabled', 'disabled');}
+        //        $("#FilterForm").submit(function () {
+        //            alert("Submitted");
+        //        });
+        //    });
+        //}
+        $('document').ready(function(){
+            console.log("test");
+            const params = new URLSearchParams(window.location.href);
+            for (var key of params.keys()) {
+                console.log(key);
+            }
+          
+        });
+        
+
+     
     </script>
 }

@@ -13,7 +13,7 @@ namespace eComApp.Areas.Customer.Controllers
     {
         private readonly IRepo<Product> _ProductRepo;
         private readonly IRepo<Category> _CategoryRepo;
-        private const int PageSize = 3; 
+        private int PageSize = 3; 
         public ProductController(IRepo<Product> Prod, IRepo<Category> Cat)
         {
             _ProductRepo = Prod;
@@ -43,14 +43,20 @@ namespace eComApp.Areas.Customer.Controllers
 
 
 
-        public IActionResult Index(int? PageNumber, ProductFilterVM _ProductFilterVM)
+        public IActionResult Index(int? PageNumber, ProductFilterVM _ProductFilterVM) //Entry Point
         {
             CustomerProductsVM _CustomerProductsVM = new CustomerProductsVM();
             _CustomerProductsVM.ProductFilterVM = _ProductFilterVM;
             InitializeCustomerProductVM(_CustomerProductsVM);
-            if (_ProductFilterVM.GetType().GetProperties().Any(prop=> prop.Name!="BrandsCheckBox" && prop.GetValue(_ProductFilterVM) !=null)) //Prevent unnecessary checks if there's no filters
+            ProductFilter(_CustomerProductsVM);
+            if (PageNumber == null)
             {
                 ProductFilter(_CustomerProductsVM);
+            }
+            else if (TempData["FilteredProductsIDs"] != null && PageNumber >= 1)
+            {
+                List<int> ProductIDs = TempData.Get<List<int>>("FilteredProductsIDs");
+                _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p=>ProductIDs.Contains(p.Id)).ToList();
             }
             if (PageNumber!=null && PageNumber!=0 && PageNumber>1)
             {
@@ -68,8 +74,11 @@ namespace eComApp.Areas.Customer.Controllers
 
         private void ProductFilter(CustomerProductsVM _CustomerProductsVM)
         {
+            bool isFiltered = false;
+
             if (!_CustomerProductsVM.ProductFilterVM.Brands.IsNullOrEmpty())
             {
+                isFiltered = true;
                 _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => _CustomerProductsVM.ProductFilterVM.Brands.Contains(p.Brand)).ToList();
                 foreach (var CheckBoxBrand in _CustomerProductsVM.ProductFilterVM.BrandsCheckBox) //for UI purposes only (Make checkbox checked automatically)
                 {
@@ -81,6 +90,7 @@ namespace eComApp.Areas.Customer.Controllers
             }
             if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.Category) && _CustomerProductsVM.ProductFilterVM.Category!="All")
             {
+                isFiltered = true;
                 _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => p.Category.Name == _CustomerProductsVM.ProductFilterVM.Category).ToList();
             }
             if(!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceFrom) || !String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceTo))
@@ -89,10 +99,12 @@ namespace eComApp.Areas.Customer.Controllers
                 if(!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceFrom) && int.Parse(_CustomerProductsVM.ProductFilterVM.PriceFrom)>0)
                 {
                     TempFrom = int.Parse(_CustomerProductsVM.ProductFilterVM.PriceFrom);
+                    isFiltered = true;
                 }
                 if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceTo) && int.Parse(_CustomerProductsVM.ProductFilterVM.PriceTo) > 0)
                 {
                     TempTo = int.Parse(_CustomerProductsVM.ProductFilterVM.PriceTo);
+                    isFiltered = true;
                 }
                 _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => p.CurrentPrice >= TempFrom && p.CurrentPrice <= TempTo).ToList();
             }
@@ -100,12 +112,40 @@ namespace eComApp.Areas.Customer.Controllers
             {
                 if(_CustomerProductsVM.ProductFilterVM.SortBy == "asc")
                 {
+                    isFiltered = true;
                     _CustomerProductsVM.Products.Sort((a,b)=>a.CurrentPrice.CompareTo(b.CurrentPrice));
                 }
                 else if(_CustomerProductsVM.ProductFilterVM.SortBy == "desc")
                 {
+                    isFiltered = true;
                     _CustomerProductsVM.Products.Sort((a,b)=>b.CurrentPrice.CompareTo(a.CurrentPrice));
                 }
+            }
+            if(!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.Display))
+            {
+                isFiltered = true;
+                switch (_CustomerProductsVM.ProductFilterVM.Display)
+                {
+                    case "1":
+                        PageSize = 1;
+                        break;
+                    case "2":
+                        PageSize = 2;
+                        break;
+                    case "3":
+                        PageSize = 3;
+                        break;
+                }
+            }
+            if(isFiltered)
+            {
+                TempData["FilteredProductsIDs"] = null;
+                List<int> ProductIDs = _CustomerProductsVM.Products.Select(p=>p.Id).ToList();
+                TempData.Push("FilteredProductsIDs",ProductIDs);
+            }
+            else
+            {
+                TempData["FilteredProductsIDs"] = null;
             }
         }
     }
@@ -118,41 +158,3 @@ namespace eComApp.Areas.Customer.Controllers
 
 
 
-
-//public IActionResult ProductFilter(ProductFilterVM ProductFilterVM)
-//{
-//    CustomerProductsVM CustomerProductsVM = new CustomerProductsVM();
-//    CustomerProductsVM.ProductFilterVM = ProductFilterVM;
-//    InitializeCustomerProductVM(CustomerProductsVM);
-//    bool IsFiltered = false; //Helps to handle the case if a user hardcoded wrong filters in the URL and to handle TempData+pagination
-//    if (!ProductFilterVM.Brands.IsNullOrEmpty())
-//    {
-//        IsFiltered = true;
-//        CustomerProductsVM.Products = CustomerProductsVM.Products.Where(p => ProductFilterVM.Brands.Contains(p.Brand)).ToList();
-//        foreach (var CheckBoxBrand in ProductFilterVM.BrandsCheckBox) //for UI purposes only (Make checkbox checked automatically)
-//        {
-//            if (ProductFilterVM.Brands.Contains(CheckBoxBrand.Value))
-//            {
-//                CheckBoxBrand.IsChecked = true;
-//            }
-//        }
-//    }
-//    if (!String.IsNullOrEmpty(ProductFilterVM.Category))
-//    {
-//        IsFiltered = true;
-//        CustomerProductsVM.Products = CustomerProductsVM.Products.Where(p => p.Category.Name == ProductFilterVM.Category).ToList();
-//    }
-//    if (IsFiltered)
-//    {
-//        List<int> ProductIDs = CustomerProductsVM.Products.Select(p => p.Id).ToList();
-//        TempData.Push("FilteredProductsIDs", ProductIDs);
-//        ProductsPaginationAndButtonsPagination(CustomerProductsVM, 1);
-//        return View("Index", CustomerProductsVM);
-//    }
-//    else
-//    {
-//        return RedirectToAction("Index");
-//    }
-//}
-//    }
-//}
