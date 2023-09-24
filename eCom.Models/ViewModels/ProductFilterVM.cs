@@ -8,9 +8,10 @@ namespace eCom.Models.ViewModels
 {
     public class ProductFilterVM
     {
-        public string? Display { get; set; } = "3";
-        public string? SortBy { get; set; } = "0";
-        public List<BrandCheckBox>? Brands { get; set; }
+        public string? Display { get; set; }
+        public string? SortBy { get; set; }
+        public List<BrandCheckBox>? BrandsCheckBox { get; set; }
+        public List<string>? Brands { get; set; }
         public string? Category { get; set; }
         public string? PriceFrom { get; set; }
         public string? PriceTo { get; set; }

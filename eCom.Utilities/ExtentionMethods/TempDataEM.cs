@@ -13,7 +13,7 @@ namespace eCom.Utilities.ExtentionMethods
     {
         public static void Push<T>(this ITempDataDictionary tempData, string Key, T Value) where T : class
         {
-            tempData[Key] = JsonConvert.SerializeObject(Value);
+            tempData[Key] = JsonConvert.SerializeObject(Value, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
         }
         public static T Get<T>(this ITempDataDictionary tempData, string Key) where T : class
         {

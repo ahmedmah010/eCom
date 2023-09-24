@@ -6,7 +6,7 @@
         <div class="Control">
             <div class="SortBy">
                 <span>SORT BY</span>
-                <select>
+                <select onchange="ChangeSortBy(this.value)" asp-for="@Model.ProductFilterVM.SortBy">
                     <option selected value="0">Default</option>
                     <option value="asc">Price Ascending</option>
                     <option value="desc">Price Descending</option>
@@ -25,14 +25,14 @@
        
 
         <div class="Products-Layout">
-            <form id="FilterForm" asp-area="Customer" asp-controller="Product" asp-action="ProductFilter" method="GET">
+            <form id="FilterForm" asp-area="Customer" asp-controller="Product" asp-action="Index" method="GET">
                 <div class="Filters">
                     <h3>Filters</h3>
                     <div class="Brand">
                         <p>Brand</p>
-                        @foreach(var Brand in Model.ProductFilterVM.Brands)
+                        @foreach(var Brand in Model.ProductFilterVM.BrandsCheckBox)
                         {
-                            <input type="checkbox" name="Brands" value="@Brand.Value" checked="@Brand.IsChecked" onChange="this.form.submit()" />
+                            <input type="checkbox" name="Brands" value="@Brand.Value" checked="@Brand.IsChecked" onchange="this.form.submit()" />
                             <label>@Brand.Value</label> <br />
                         }
                     </div>
@@ -40,35 +40,41 @@
                     <div class="Category">
                         <p>Categories</p>
                         <div>
+                            <input type="button" onclick="ChooseCat(this.value)" class="btn btn-primary" value="All" />
                             @foreach(var Category in Model.Categories)
                             {
-                                <input onclick="ChooseCat(this.value)" class="btn btn-primary" value="@Category.Name"/>
+                                <input type="button" onclick="ChooseCat(this.value)" class="btn btn-primary" value="@Category.Name"/>
                             }
                             <input type="text" id="ChosenCategory" onchange="this.form.submit()" name="Category" value="@Model.ProductFilterVM.Category" hidden />
+                            <input type="text" id="ChosenPage" onchange="this.form.submit()" name="PageNumber" value="1" hidden />
+                            <input type="text" id="ChosenSortBy" onchange="this.form.submit()" name="SortBy" value="@Model.ProductFilterVM.SortBy" hidden />
+                            
                         </div>
                     </div>
                     <hr />
                     <div class="Price">
                         <p>Price</p>
                         <span>From</span>
-                        <input type="number" />
+                        <input type="number" name="PriceFrom" value="@Model.ProductFilterVM.PriceFrom"/>
                         <span>To</span>
-                        <input type="number" />
+                        <input type="number" name="PriceTo" value="@Model.ProductFilterVM.PriceTo" />
+                        <input class="btn btn-outline-dark mt-2" type="button" value="Apply" onclick="this.form.submit()"/>
                     </div>
 
                 </div>
             </form>
+            
             <div class="Products" id="Products">
                 <partial name="~/Views/Shared/Customer_ProductPV/_ProductPV.cshtml" model="@Model.Products"/>
             </div>
         </div>
         <div class="PaginationButtons">
-    
-               <a class="btn btn-primary" asp-area="Customer" asp-controller="Product" asp-action="Paginate" asp-route-PageNumber="1">1</a>
+
+            <input type="button" class="btn btn-primary" onclick="ChoosePage(this.value)" value="1">
 
                 @for(int i = 2;i<=Model.PaginationButtons;++i)
                 {
-                <a class="btn btn-primary" asp-area="Customer" asp-controller="Product" asp-action="Paginate" asp-route-PageNumber="@i">@i</a>
+                <input type="button" class="btn btn-primary" onclick="ChoosePage(this.value)" value="@i">
                 }
         
         </div>
@@ -101,6 +107,25 @@
         function ChooseCat(Category)
         {
             $('#ChosenCategory').val(Category).trigger('change');
+        }
+        function ChoosePage(pg) {
+            $('#ChosenPage').val(pg).trigger('change');
+        }
+        function ChangeSortBy(value)
+        {
+            $('#ChosenSortBy').val(value).trigger('change');
+        }
+        
+        function DisableNullFields()
+        {
+            $('input').each(function(){
+                var inp = $(this);
+                if (inp.val() == '')
+                {inp.attr('disabled', 'disabled');}
+                $("#FilterForm").submit(function () {
+                    alert("Submitted");
+                });
+            });
         }
     </script>
 }
