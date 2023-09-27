@@ -39,6 +39,83 @@ namespace eComApp.Areas.Customer.Controllers
         }
 
 
+        private void ProductFilter(CustomerProductsVM _CustomerProductsVM)
+        {
+            bool isFiltered = false;
+
+            if (!_CustomerProductsVM.ProductFilterVM.Brands.IsNullOrEmpty())
+            {
+                isFiltered = true;
+                _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => _CustomerProductsVM.ProductFilterVM.Brands.Contains(p.Brand)).ToList();
+                foreach (var CheckBoxBrand in _CustomerProductsVM.ProductFilterVM.BrandsCheckBox) //for UI purposes only (Make checkbox checked automatically)
+                {
+                    if (_CustomerProductsVM.ProductFilterVM.Brands.Contains(CheckBoxBrand.Value))
+                    {
+                        CheckBoxBrand.IsChecked = true;
+                    }
+                }
+            }
+            if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.Category) && _CustomerProductsVM.ProductFilterVM.Category != "All")
+            {
+                isFiltered = true;
+                _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => p.Category.Name == _CustomerProductsVM.ProductFilterVM.Category).ToList();
+            }
+            if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceFrom) || !String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceTo))
+            {
+                int TempFrom = 0, TempTo = 0;
+                if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceFrom) && int.Parse(_CustomerProductsVM.ProductFilterVM.PriceFrom) > 0)
+                {
+                    TempFrom = int.Parse(_CustomerProductsVM.ProductFilterVM.PriceFrom);
+                    isFiltered = true;
+                }
+                if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceTo) && int.Parse(_CustomerProductsVM.ProductFilterVM.PriceTo) > 0)
+                {
+                    TempTo = int.Parse(_CustomerProductsVM.ProductFilterVM.PriceTo);
+                    isFiltered = true;
+                }
+                _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => p.CurrentPrice >= TempFrom && p.CurrentPrice <= TempTo).ToList();
+            }
+            if (_CustomerProductsVM.ProductFilterVM.SortBy != "0")
+            {
+                if (_CustomerProductsVM.ProductFilterVM.SortBy == "asc")
+                {
+                    isFiltered = true;
+                    _CustomerProductsVM.Products.Sort((a, b) => a.CurrentPrice.CompareTo(b.CurrentPrice));
+                }
+                else if (_CustomerProductsVM.ProductFilterVM.SortBy == "desc")
+                {
+                    isFiltered = true;
+                    _CustomerProductsVM.Products.Sort((a, b) => b.CurrentPrice.CompareTo(a.CurrentPrice));
+                }
+            }
+            if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.Display))
+            {
+                isFiltered = true;
+                switch (_CustomerProductsVM.ProductFilterVM.Display)
+                {
+                    case "1":
+                        PageSize = 1;
+                        break;
+                    case "2":
+                        PageSize = 2;
+                        break;
+                    case "3":
+                        PageSize = 3;
+                        break;
+                }
+            }
+            if (isFiltered)
+            {
+                TempData["FilteredProductsIDs"] = null;
+                List<int> ProductIDs = _CustomerProductsVM.Products.Select(p => p.Id).ToList();
+                TempData.Push("FilteredProductsIDs", ProductIDs);
+            }
+            else
+            {
+                TempData["FilteredProductsIDs"] = null;
+            }
+        }
+
         /* *************************************************** End Helper Methods *************************************************** */
 
 
@@ -72,81 +149,18 @@ namespace eComApp.Areas.Customer.Controllers
         }
 
 
-        private void ProductFilter(CustomerProductsVM _CustomerProductsVM)
+        public IActionResult ProductSearchPV(string text)
         {
-            bool isFiltered = false;
-
-            if (!_CustomerProductsVM.ProductFilterVM.Brands.IsNullOrEmpty())
+            List<ProductSearchVM> SearchedProducts = new List<ProductSearchVM>();
+            if(!String.IsNullOrWhiteSpace(text) && text.Length>=3)
             {
-                isFiltered = true;
-                _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => _CustomerProductsVM.ProductFilterVM.Brands.Contains(p.Brand)).ToList();
-                foreach (var CheckBoxBrand in _CustomerProductsVM.ProductFilterVM.BrandsCheckBox) //for UI purposes only (Make checkbox checked automatically)
-                {
-                    if (_CustomerProductsVM.ProductFilterVM.Brands.Contains(CheckBoxBrand.Value))
-                    {
-                        CheckBoxBrand.IsChecked = true;
-                    }
-                }
+                SearchedProducts = _ProductRepo.Where(p=>p.Title.Contains(text) || p.Brand.Contains(text)).Select(p=>new ProductSearchVM { Id=p.Id,Name=p.Title,Brand=p.Brand}).ToList();
             }
-            if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.Category) && _CustomerProductsVM.ProductFilterVM.Category!="All")
+            if(SearchedProducts.Count == 0)
             {
-                isFiltered = true;
-                _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => p.Category.Name == _CustomerProductsVM.ProductFilterVM.Category).ToList();
+                return Content("");
             }
-            if(!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceFrom) || !String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceTo))
-            {
-                int TempFrom=0, TempTo=0;
-                if(!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceFrom) && int.Parse(_CustomerProductsVM.ProductFilterVM.PriceFrom)>0)
-                {
-                    TempFrom = int.Parse(_CustomerProductsVM.ProductFilterVM.PriceFrom);
-                    isFiltered = true;
-                }
-                if (!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.PriceTo) && int.Parse(_CustomerProductsVM.ProductFilterVM.PriceTo) > 0)
-                {
-                    TempTo = int.Parse(_CustomerProductsVM.ProductFilterVM.PriceTo);
-                    isFiltered = true;
-                }
-                _CustomerProductsVM.Products = _CustomerProductsVM.Products.Where(p => p.CurrentPrice >= TempFrom && p.CurrentPrice <= TempTo).ToList();
-            }
-            if(_CustomerProductsVM.ProductFilterVM.SortBy!="0")
-            {
-                if(_CustomerProductsVM.ProductFilterVM.SortBy == "asc")
-                {
-                    isFiltered = true;
-                    _CustomerProductsVM.Products.Sort((a,b)=>a.CurrentPrice.CompareTo(b.CurrentPrice));
-                }
-                else if(_CustomerProductsVM.ProductFilterVM.SortBy == "desc")
-                {
-                    isFiltered = true;
-                    _CustomerProductsVM.Products.Sort((a,b)=>b.CurrentPrice.CompareTo(a.CurrentPrice));
-                }
-            }
-            if(!String.IsNullOrEmpty(_CustomerProductsVM.ProductFilterVM.Display))
-            {
-                isFiltered = true;
-                switch (_CustomerProductsVM.ProductFilterVM.Display)
-                {
-                    case "1":
-                        PageSize = 1;
-                        break;
-                    case "2":
-                        PageSize = 2;
-                        break;
-                    case "3":
-                        PageSize = 3;
-                        break;
-                }
-            }
-            if(isFiltered)
-            {
-                TempData["FilteredProductsIDs"] = null;
-                List<int> ProductIDs = _CustomerProductsVM.Products.Select(p=>p.Id).ToList();
-                TempData.Push("FilteredProductsIDs",ProductIDs);
-            }
-            else
-            {
-                TempData["FilteredProductsIDs"] = null;
-            }
+            return PartialView("~/Views/Shared/Customer_ProductPV/_ProductSearch.cshtml", SearchedProducts);
         }
     }
 }

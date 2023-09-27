@@ -1,0 +1,7 @@
+﻿@model List<ProductSearchVM>
+
+
+@foreach(ProductSearchVM prod in Model)
+{
+    <p class="ProductSearchResult">@prod.Name   —   <span>@prod.Brand</span></p>
+}

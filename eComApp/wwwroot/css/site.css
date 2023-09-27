@@ -40,8 +40,6 @@ body {
     max-width: 200px
 }
 .Products-Layout {
-    /*flex-grow:1;
-    padding: 0 20px;*/
     display:flex;
     gap:40px;
 }
@@ -63,14 +61,65 @@ body {
     padding: 5px;
     cursor:pointer;
     border-radius:6px;
+}
+.Layout .Control .SearchBar {
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    flex-grow:1;
+    margin: 0 40px;
     
-    
+}
+.Layout .Control .SearchBar > input {
+    position: relative;
+    display:block;
+    width: 250px;
+    border-radius: 20px;
+    padding: 8px 15px;
+    border: 1px solid #777;
+    transition: 0.5s;
+    margin: 0 auto;
+}
+
+.Layout .Control .SearchBar > input:focus {
+    width:100%;
+}
+.SearchBar > input::placeholder {
+   
+    margin:0 auto;
+}
+
+.Control .SearchBar #SearchedProducts {
+    display:none;
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    top: 50px;
+    font-size: 15px;
+    box-shadow: 0px 10px 15px 5px rgba(0,0,0,0.1);
+}
+#SearchedProducts > .ProductSearchResult{
+    padding:10px;
+    margin:0;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight: 500;
+}
+#SearchedProducts > .ProductSearchResult:hover {
+    background-color: #ddd;
+}
+#SearchedProducts > .ProductSearchResult > span {
+    font-style:italic;
+    color: #777;
 }
 .Products-Layout .Products {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(190px,1fr));
     gap: 15px;
-    flex-grow:1;
+    flex-grow: 1;
     padding: 0 10px;
     border-left: 1px solid silver;
 }
@@ -82,12 +131,12 @@ body {
     transition: 0.3s;
 }
 
-    .ProductCard img {
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: 10px;
-        height: 285px;
-    }
+.ProductCard img {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+    height: 285px;
+}
 .ProductCard > p {
     margin: 0;
 }

@@ -70,10 +70,10 @@ namespace eCom.DataAccess.Repos
         {
             _db.SaveChanges();
         }
-        //public List<T> Pagination(int page, int pageSize)
-        //{
-        //    return _db.Set<T>().Skip((page-1)*pageSize).Take(pageSize).ToList();
-        //}
+        public IEnumerable<T> Where(Expression<Func<T, bool>> match)
+        {
+            return _db.Set<T>().Where(match);
+        }
         public int Count()
         {
             return _db.Set<T>().Count();

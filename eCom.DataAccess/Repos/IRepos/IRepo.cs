@@ -15,6 +15,7 @@ namespace eCom.DataAccess.Repos.IRepos
         T Get(Expression<Func<T, bool>> match, params string[] tables);
         IEnumerable<T> GetAll();
         IEnumerable<T> GetAll(params string[]tables);
+        IEnumerable<T> Where(Expression<Func<T, bool>> match);
         void add(T item);
         void remove(T item);
         void update(T item);

@@ -12,6 +12,12 @@
                     <option value="desc">Price Descending</option>
                 </select>
             </div>
+            <div class="SearchBar">
+                <input onkeyup="SearchForProducts(this.value)" type="text" placeholder="What are you looking for?" />
+                <div id="SearchedProducts">
+
+                </div>
+            </div>
             <div class="Pagination">
                 <span>DISPLAY</span>
                 <select onchange="ChangePerPage(this.value)" asp-for="@Model.ProductFilterVM.Display">
@@ -119,26 +125,36 @@
         function ChangePerPage(value) {
             $('#ChosenPerPage').val(value).trigger('change');
         }
-        
-        //function DisableNullFields()
-        //{
-        //    $('input').each(function(){
-        //        var inp = $(this);
-        //        if (inp.val() == '')
-        //        {inp.attr('disabled', 'disabled');}
-        //        $("#FilterForm").submit(function () {
-        //            alert("Submitted");
-        //        });
-        //    });
-        //}
-        $('document').ready(function(){
-            console.log("test");
-            const params = new URLSearchParams(window.location.href);
-            for (var key of params.keys()) {
-                console.log(key);
+
+
+        function SearchForProducts(value){
+            var _url = '@Url.Action("ProductSearchPV","Product")';
+            var _val = value;
+            $.ajax({
+                url: _url,
+                data: {text: _val},
+                success: function(res)
+                {
+                    if (_val.length >= 3 && res != "") {  
+                        $('#SearchedProducts').show();
+                        $('#SearchedProducts').html(res);
+                    }
+                    else
+                    {
+                        $('#SearchedProducts').hide();
+                    }
+                }
+       
+            });
+        }
+
+        $(document).click(function (e) {
+            var container = $('#SearchedProducts');
+            // if the target of the click isn't the container nor a descendant of the container
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
             }
-          
-        });
+        })
         
 
      
