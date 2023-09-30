@@ -1,5 +1,7 @@
 ﻿using eCom.Models;
 using eCom.Models.EntityTypeConfiguration;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace eCom.DataAccess.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -25,7 +27,7 @@ namespace eCom.DataAccess.Data
         {
             //Loads all EntityTypeConfiguration from the assembly
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CategoryTC).Assembly);
-           
+
             //Seeds
             /*
             modelBuilder.Entity<Category>().HasData(
@@ -42,6 +44,11 @@ namespace eCom.DataAccess.Data
                 new ProductTag { ProductId=1,TagId=1}
                 );
             */
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole { ConcurrencyStamp = "5e00eea4-faa4-4a00-97eb-4c3e9041aa8e", Id = "5e00eea4-faa4-4a00-97eb-4c3e9041aa5c", Name = "admin", NormalizedName = "admin".ToUpper() },
+                new IdentityRole { ConcurrencyStamp = "5e00eea4-faa4-4a00-97eb-4c3e9041aa8c", Id = "5e00eea4-faa4-4a00-97eb-4c3e9941aa8c", Name = "user", NormalizedName = "user".ToUpper() }
+
+                );
 
 
 

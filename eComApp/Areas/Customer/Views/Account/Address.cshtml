@@ -1,0 +1,151 @@
+﻿@model List<UserAddress>
+
+<!-- Button trigger NewAddress -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newAddressModal">
+    New Address
+</button>
+
+
+@foreach(UserAddress adrs in Model)
+{
+    <div style="border:2px dotted black;padding:5px;">
+        <p>@adrs.FullName</p>
+        <p>@adrs.Street</p>
+        <p>@adrs.City</p>
+        <p>@adrs.NearestLandMark</p>
+        <button type="button" onclick="BindModel(@adrs.Id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAddressModal">
+            Edit
+        </button>
+        <button type="button" onclick="ChangeAddressToBeDeleted(@adrs.Id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAddressModal">
+            Delete
+        </button>
+
+
+    </div>
+}
+
+
+
+
+
+
+
+
+<!-- NewAddress Modal -->
+<div class="modal fade" id="newAddressModal" tabindex="-1" role="dialog" aria-labelledby="newAddressModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Address</h5>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                    X
+                </button>
+            </div>
+            <form asp-controller="Account" asp-action="NewAddress" method="post">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" placeholder="full name" name="FullName">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" placeholder="phone" name="Phone">
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control" name="City">
+                    </div>
+                    <div class="form-group">
+                        <label>Street</label>
+                        <input type="text" class="form-control" placeholder="ST." name="Street">
+                    </div>
+                    <div class="form-group">
+                        <label>Nearest Landmark</label>
+                        <input type="text" class="form-control" name="NearestLandMark">
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Info</label>
+                        <input type="text" class="form-control" name="AdditionalInfo">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Make Default</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<!-- EditAddress Modal -->
+<div class="modal fade" id="editAddressModal" tabindex="-1" role="dialog" aria-labelledby="editAddressModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Address</h5>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                    X
+                </button>
+            </div>
+           <div id="editAddressContainer">
+
+           </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+
+<!-- DeleteAddress Modal -->
+<div class="modal fade" id="deleteAddressModal" tabindex="-1" role="dialog" aria-labelledby="deleteAddressModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form asp-controller="Account" asp-action="DeleteAddress" method="post">
+                    <input type="text" value="" id="AddressToBeDeleted" name="Id" hidden />
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                </form>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+
+
+
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function BindModel(modelId){
+            var _url = '@Url.Action("EditAddress","Account")'
+            $.ajax({
+                url: _url,
+                data: { Id: modelId },
+                success:function(res){
+                    $('#editAddressContainer').html(res);
+                }
+            });
+        }
+        function ChangeAddressToBeDeleted(id)
+        {
+            $('#AddressToBeDeleted').val(id);
+        }
+
+
+    </script>
+}

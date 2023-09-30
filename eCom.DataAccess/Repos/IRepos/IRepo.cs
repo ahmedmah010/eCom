@@ -24,6 +24,7 @@ namespace eCom.DataAccess.Repos.IRepos
         //List<T> Pagination(int page, int pageSize);
         int Count();
 
+        bool HasChanges();
 
     }
 }

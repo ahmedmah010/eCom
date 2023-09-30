@@ -78,5 +78,9 @@ namespace eCom.DataAccess.Repos
         {
             return _db.Set<T>().Count();
         }
+        public bool HasChanges()
+        {
+            return _db.ChangeTracker.HasChanges();
+        }
     }
 }

@@ -84,11 +84,6 @@ body {
 .Layout .Control .SearchBar > input:focus {
     width:100%;
 }
-.SearchBar > input::placeholder {
-   
-    margin:0 auto;
-}
-
 .Control .SearchBar #SearchedProducts {
     display:none;
     border: 1px solid #ccc;

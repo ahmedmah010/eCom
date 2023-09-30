@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> _userManager
+@{
+    AppUser _user = null;
+    if (User.Identity.IsAuthenticated)
+    { _user = await _userManager.FindByNameAsync(User.Identity.Name); }
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -43,6 +50,22 @@
                             <a class="nav-link text-dark" asp-area="Customer" asp-controller="Cart" asp-action="Index"><i class="fa-solid fa-cart-shopping"></i></a>
                         </li>
                     </ul>
+                    <div class="navbar-nav flex-grow-1">
+                          @if(!User.Identity.IsAuthenticated)
+                          {
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Account" asp-action="Register">Register</a>
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Account" asp-action="Login">Login</a>
+                        }
+                        else
+                        {
+                            <!-- Better way of doing this through ViewComponent or PartialView -->
+                            <p class="nav-link text-dark m-0">Hello, @_user?.Fname</p>
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Account" asp-action="Address">Settings</a>
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Account" asp-action="Logout">Logout</a>
+                        }
+                       
+                        
+                    </div>
                 </div>
             </div>
         </nav>
