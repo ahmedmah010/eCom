@@ -128,6 +128,10 @@ namespace eComApp.Areas.Customer.Controllers
             }
             return RedirectToAction("Index","Home");
         }
+
+        /* Address Logic */
+
+
         [Authorize]
         public async Task<IActionResult> Address()
         {
@@ -135,45 +139,62 @@ namespace eComApp.Areas.Customer.Controllers
             
             return View(_user.Addresses);
         }
+        //[Authorize]
+        //[HttpPost]
+        //public async Task<IActionResult> NewAddress(UserAddress _userAdrs)
+        //{
+        //    _userAdrs.UserId = (await _userManager.FindByNameAsync(User.Identity.Name)).Id;
+        //    ModelState.Remove("UserId");
+        //    ModelState.SetModelValue("UserId", new ValueProviderResult(_userAdrs.UserId));
+        //    ModelState.MarkFieldValid("UserId");
+        //    if (ModelState.IsValid)
+        //    {
+        //        _userAdrsRepo.add(_userAdrs);
+        //        _userAdrsRepo.SaveChanges();
+        //    }
+        //    return RedirectToAction("Address","Account");
+        //}
+        [Authorize]
+        public IActionResult UpsertAddress(int Id)
+        {
+            if(Id <=0 )
+            {
+                return PartialView("~/Views/Shared/Customer_UserAddressPV/_EditAddress.cshtml", new UserAddress());
+            }
+       
+            else
+            {
+                UserAddress _userAddress = _userAdrsRepo.Get(a => a.Id == Id);
+                return PartialView("~/Views/Shared/Customer_UserAddressPV/_EditAddress.cshtml", _userAddress);
+            }
+            
+        }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> NewAddress(UserAddress _userAdrs)
+        public async Task<IActionResult> UpsertAddress(UserAddress _userAddress)
         {
-            _userAdrs.UserId = (await _userManager.FindByNameAsync(User.Identity.Name)).Id;
+            _userAddress.UserId = (await _userManager.FindByNameAsync(User.Identity.Name)).Id;
             ModelState.Remove("UserId");
-            ModelState.SetModelValue("UserId", new ValueProviderResult(_userAdrs.UserId));
+            ModelState.SetModelValue("UserId", new ValueProviderResult(_userAddress.UserId));
             ModelState.MarkFieldValid("UserId");
             if (ModelState.IsValid)
             {
-                _userAdrsRepo.add(_userAdrs);
-                _userAdrsRepo.SaveChanges();
-            }
-            return RedirectToAction("Address","Account");
-        }
-        [Authorize]
-        public IActionResult EditAddress(int Id)
-        {
-            UserAddress _userAddress = new UserAddress();
-            if(Id>0)
-            {
-               _userAddress = _userAdrsRepo.Get(a => a.Id == Id);
-            }
-            return PartialView("~/Views/Shared/Customer_UserAddressPV/_EditAddress.cshtml", _userAddress);
-        }
-        [Authorize]
-        [HttpPost]
-        public async Task<IActionResult> EditAddress(UserAddress _userAddress)
-        {
-            if (ModelState.IsValid)
-            {
-                string _currUserId = (await _userManager.FindByNameAsync(User.Identity.Name)).Id;
-                if(_currUserId == _userAddress.UserId)
+                if(_userAddress.Id==0) //new address
+                {
+                    _userAdrsRepo.add(_userAddress);
+                    _userAdrsRepo.SaveChanges();
+                }
+                else //update
                 {
                     _userAdrsRepo.update(_userAddress);
                     _userAdrsRepo.SaveChanges();
-                }
+                }                
+                return Content("Success");
             }
-            return RedirectToAction("Address","Account");
+            else
+            {
+                return PartialView("~/Views/Shared/Customer_UserAddressPV/_EditAddress.cshtml",_userAddress);
+            }
         }
         [Authorize]
         public async Task<IActionResult> DeleteAddress(int Id)

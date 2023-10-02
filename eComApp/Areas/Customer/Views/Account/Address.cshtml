@@ -1,7 +1,7 @@
 ﻿@model List<UserAddress>
 
 <!-- Button trigger NewAddress -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newAddressModal">
+<button type="button" onclick="BindModel(0)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddressModal">
     New Address
 </button>
 
@@ -13,7 +13,7 @@
         <p>@adrs.Street</p>
         <p>@adrs.City</p>
         <p>@adrs.NearestLandMark</p>
-        <button type="button" onclick="BindModel(@adrs.Id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAddressModal">
+        <button type="button" onclick="BindModel(@adrs.Id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddressModal">
             Edit
         </button>
         <button type="button" onclick="ChangeAddressToBeDeleted(@adrs.Id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAddressModal">
@@ -31,7 +31,7 @@
 
 
 
-<!-- NewAddress Modal -->
+@*<!-- NewAddress Modal -->
 <div class="modal fade" id="newAddressModal" tabindex="-1" role="dialog" aria-labelledby="newAddressModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -82,9 +82,9 @@
     </div>
 </div>
 <!-- End Modal -->
-
+*@
 <!-- EditAddress Modal -->
-<div class="modal fade" id="editAddressModal" tabindex="-1" role="dialog" aria-labelledby="editAddressModal" aria-hidden="true">
+<div class="modal fade" id="AddressModal" tabindex="-1" role="dialog" aria-labelledby="AddressModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -93,7 +93,7 @@
                     X
                 </button>
             </div>
-           <div id="editAddressContainer">
+           <div id="AddressContainer">
 
            </div>
         </div>
@@ -132,12 +132,12 @@
     <script type="text/javascript">
 
         function BindModel(modelId){
-            var _url = '@Url.Action("EditAddress","Account")'
+            var _url = '@Url.Action("UpsertAddress","Account")'
             $.ajax({
                 url: _url,
                 data: { Id: modelId },
                 success:function(res){
-                    $('#editAddressContainer').html(res);
+                    $('#AddressContainer').html(res);
                 }
             });
         }
