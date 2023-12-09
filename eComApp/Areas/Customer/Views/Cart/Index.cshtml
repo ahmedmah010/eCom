@@ -15,34 +15,9 @@
                     <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
                     
                 </div>
-               @foreach(var item in Model)
-                {
-                    <div id="@item.Id">
-                        <partial name="_CartItem" model="item"/>
-                    </div>
-                   
-                }
-
-                <div class="card mb-4">
-                    <div class="card-body p-4 d-flex flex-row">
-                        <input type="text" id="form1" class="form-control form-control-lg" placeholder="Discount Code"/>
-                        <button type="button" class="btn btn-outline-warning  ms-3">Apply</button>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <div class="card-body p-4 d-flex flex-row">
-                        <div id="TotalPrice">
-                            <partial name="_CartTotalPrice"/>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div class="card-body d-flex justify-content-end">
-                    <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Payment</button>
-                </div>
-               
+                <div id="cartItems">
+                 <partial name="_CartItems" model="Model"/>
+                </div> 
 
             </div>
         </div>
@@ -54,32 +29,31 @@
 
     <script type="text/javascript">
 
-        function UpdateCartItem(Id, quantity) {
+        function UpdateCartItemQuan(Id, quantity) {
             var id = Id;
             var quan = quantity;
-            var _url = '@Url.Action("CartItemPV", "Cart")';
+            var _url = '@Url.Action("UpdateCartItemQuan", "Cart")';
             $.ajax(
                 {
                     url: _url,
-                    data: { "id": id,"quan":quan},
+                    data: { "Id": id,"quan":quan},
                     success: function (res) {
-                        $(`#${id}`).html(res);
-                        UpdateCartTotalPrice();
+                        $(`#cartItems`).html(res);
                     },
                 }
             );
         }
-        function UpdateCartTotalPrice() {
-            var _url = '@Url.Action("CartTotalPrice", "Cart")';
-            $.ajax(
-                {
-                    url: _url,
-                    success: function (res) {
-                        $('#TotalPrice').html(res);
-                    },
-                }
-            );
-        }
+        //function UpdateCartTotalPrice() {
+        //    var _url = '@Url.Action("CartTotalPrice", "Cart")';
+        //    $.ajax(
+        //        {
+        //            url: _url,
+        //            success: function (res) {
+        //                $('#TotalPrice').html(res);
+        //            },
+        //        }
+        //    );
+        //}
 
     </script>
 }

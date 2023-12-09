@@ -159,13 +159,13 @@ namespace eComApp.Areas.Customer.Controllers
         {
             if(Id <=0 )
             {
-                return PartialView("~/Views/Shared/Customer_UserAddressPV/_EditAddress.cshtml", new UserAddress());
+                return PartialView("~/Views/Shared/Customer_UserAddressPV/_UpsertAddress.cshtml", new UserAddress());
             }
        
             else
             {
                 UserAddress _userAddress = _userAdrsRepo.Get(a => a.Id == Id);
-                return PartialView("~/Views/Shared/Customer_UserAddressPV/_EditAddress.cshtml", _userAddress);
+                return PartialView("~/Views/Shared/Customer_UserAddressPV/_UpsertAddress.cshtml", _userAddress);
             }
             
         }
@@ -188,12 +188,12 @@ namespace eComApp.Areas.Customer.Controllers
                 {
                     _userAdrsRepo.update(_userAddress);
                     _userAdrsRepo.SaveChanges();
-                }                
-                return Content("Success");
+                }
+                return Content("");
             }
             else
             {
-                return PartialView("~/Views/Shared/Customer_UserAddressPV/_EditAddress.cshtml",_userAddress);
+                return PartialView("~/Views/Shared/Customer_UserAddressPV/_UpsertAddress.cshtml",_userAddress);
             }
         }
         [Authorize]

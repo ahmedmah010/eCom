@@ -1,0 +1,55 @@
+﻿@model List<CartItem>
+
+@foreach (var item in Model)
+{
+    <div class="card rounded-3 mb-4">
+        <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img src="~/images//Prod_Id_@item.ProductId/@item.Image" class="img-fluid rounded-3" alt="Cotton T-shirt" />
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2">@item.Title</p>
+                    <p style="color:#777">@item.Brand</p>
+                    <small>Price: EGP @item.ProductPrice</small>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                
+
+                    <input id="@item.ProductId" min="0" name="quantity" value="@item.Qty" type="number"
+                            class="form-control form-control-sm" onchange="UpdateCartItemQuan(@item.ProductId,this.value)" />
+                </div>
+               
+                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h5 class="mb-0">EGP @item.SubTotal</h5>
+                    @if (TempData["QuanExceeded"] != null && item.ProductId.ToString() == TempData["QuanExceeded"].ToString())
+                    {
+                        <strong class="text-danger">Sorry. You've exceeded the available quantity of this product.</strong>
+                    }
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a asp-area="Customer" asp-controller="Cart" asp-action="DeleteCartItem" asp-route-id="@item.ProductId"  class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+        </div>
+}
+<div class="card mb-4">
+    <div class="card-body p-4 d-flex flex-row">
+        <input type="text" id="form1" class="form-control form-control-lg" placeholder="Discount Code" />
+        <button type="button" class="btn btn-outline-warning  ms-3">Apply</button>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body p-4 d-flex flex-row">
+        <div id="TotalPrice">
+            Total Price: @CartItem.TotalPrice
+        </div>
+    </div>
+</div>
+
+
+<div class="card-body d-flex justify-content-end">
+    <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Payment</button>
+</div>

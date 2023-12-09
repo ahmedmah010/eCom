@@ -8,22 +8,20 @@ namespace eCom.Models
 {
     public class CartItem
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
         public int Qty { get; set; }
+        public float ProductPrice { get; set; }
         public string Title { get; set; }
         public string Brand { get; set; }
-        public string Img { get; set; }
-        public int ProductPrice { get; set; }
-        public int ProductId { get; set; }
-        public int SubTotal { get; set; }
+        public string Image { get; set; }
+        public float SubTotal { get; set; }
 
         public static int CreatedCartItems;
-        public static int TotalPrice=0;
+        public static float TotalPrice=0;
 
         public CartItem()
         {
             CreatedCartItems++;
-            this.Id = CreatedCartItems;
         }
         ~CartItem()
         {

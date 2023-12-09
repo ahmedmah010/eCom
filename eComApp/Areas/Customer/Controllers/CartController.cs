@@ -19,17 +19,32 @@ namespace eComApp.Areas.Customer.Controllers
             _context = context; 
         }
 
+        private void UpdateCartItems(List<CartItem> cartItems)
+        {
+            CartItem.TotalPrice = 0;
+            foreach (CartItem Item in cartItems)
+            {
+                Product p = _context.Products.FirstOrDefault(p => p.Id == Item.ProductId);
+                if (p != null)
+                {
+                    Item.Title = p.Title;
+                    Item.Brand = p.Brand;
+                    Item.ProductId = p.Id;
+                    Item.Image = p.Images[0].Name;
+                    Item.ProductPrice = p.CurrentPrice;
+                    Item.SubTotal = Item.Qty * Item.ProductPrice;
+                    CartItem.TotalPrice += (Item.SubTotal);
+                }
+            }
+        }
+
         public IActionResult Index()
         {
             List<CartItem> cartItems = new List<CartItem>();
             if (Request.Cookies["CartData"]!=null)
             {
                 cartItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["CartData"]);
-                CartItem.TotalPrice = 0;
-                foreach(var Item in cartItems)
-                {
-                    CartItem.TotalPrice += Item.SubTotal;
-                }
+                UpdateCartItems(cartItems);
             }
             return View(cartItems);
         }
@@ -45,44 +60,55 @@ namespace eComApp.Areas.Customer.Controllers
                 {
                     cartItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["CartData"]);
                 }
-                CartItem cartItem = new CartItem();
-                cartItem.ProductId = p.Id;
-                cartItem.Qty = 1;
-                cartItem.Brand = p.Brand;
-                cartItem.Title = p.Title;
-                cartItem.ProductPrice = p.CurrentPrice;
-                cartItem.SubTotal = cartItem.Qty * cartItem.ProductPrice;
-                cartItem.Img = p.Images[0].Name;
-                cartItems.Add(cartItem);
-                CartItem.TotalPrice += cartItem.SubTotal;
-                Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), Cookie);
+                if (cartItems.Any(ci => ci.ProductId == Id))
+                {
+                    UpdateCartItemQuan(Id, cartItems.First(ci => ci.ProductId == Id).Qty + 1);
+                }
+                else
+                {
+                    CartItem cartItem = new CartItem();
+                    cartItem.ProductId = p.Id;
+                    cartItem.Qty = 1;
+                    cartItems.Add(cartItem);
+                    Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), Cookie);
+                }
             }
             return RedirectToAction("Index");
         }
-
-        public IActionResult CartItemPV(int id, int quan)
+        public ActionResult UpdateCartItemQuan(int Id, int quan)
         {
             List<CartItem> cartItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["CartData"]);
-            CartItem target = cartItems.Find(x => x.Id == id);
-            CartItem.TotalPrice -= target.SubTotal;
-            target.Qty = quan;
-            target.SubTotal = target.Qty * target.ProductPrice;
-            CartItem.TotalPrice += target.SubTotal;
-            Response.Cookies.Delete("CartData");
-            Response.Cookies.Append("CartData",JsonConvert.SerializeObject(cartItems),new CookieOptions { Expires=DateTime.Now.AddDays(15)});
-
-            
-            return PartialView("_CartItem", target);
+            Product p = _context.Products.Find(Id);
+            if (p.CurrentQuantity >= quan)
+            {
+                cartItems.Find(ci => ci.ProductId == Id).Qty = quan;
+                Response.Cookies.Delete("CartData");
+                Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), new CookieOptions { Expires = DateTime.Now.AddDays(15) });
+            }
+            else
+            {
+                TempData["QuanExceeded"] = Id.ToString();
+            }
+            return RedirectToAction("CartItemsPV");
         }
-        public IActionResult CartTotalPrice()
+        public IActionResult CartItemsPV()
         {
-            return PartialView("_CartTotalPrice");
+            List<CartItem> cartItems = new List<CartItem>();
+            if (Request.Cookies["CartData"] != null)
+            {
+                cartItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["CartData"]);
+                UpdateCartItems(cartItems);
+            }
+
+            return PartialView("_CartItems",cartItems);
+            
         }
         public IActionResult DeleteCartItem(int id)
         {
             List<CartItem> cartItems = JsonConvert.DeserializeObject<List<CartItem>>(Request.Cookies["CartData"]);
-            CartItem target = cartItems.Find(x => x.Id == id);
-            CartItem.TotalPrice -= target.SubTotal;
+            CartItem target = cartItems.Find(x => x.ProductId == id);
+            Product p = _context.Products.FirstOrDefault(p => p.Id == target.ProductId);
+            CartItem.TotalPrice -= (target.Qty*p.CurrentPrice);
             cartItems.Remove(target);
             Response.Cookies.Delete("CartData");
             if (cartItems.Count != 0)
