@@ -34,6 +34,5 @@ namespace eCom.Models
         public virtual List<ProductTag>? ProdTag { get; set; }
         //Navigation Property
         public virtual List<ProductImage> Images { get; set; }
-
     }
 }

@@ -4,5 +4,37 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <!-- Modal -->
+    <div class="modal fade" id="SaveCartToDB" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Registered Successfully!
+                    We have noticed a previous cart items added before registration, do you want to import them into your account?
+                </div>
+                <div style="display:flex;justify-content:center;align-items:center;gap:10px;padding:15px;">
+                    <button type="button" class="btn btn-success">Yes</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 </div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var msg = @ViewData["SaveCartToDB"];
+            if (msg) {
+                $('#SaveCartToDB').modal("show");
+            }
+        });    
+    
+    </script>
+}

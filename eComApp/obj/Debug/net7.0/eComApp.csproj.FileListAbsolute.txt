@@ -521,6 +521,16 @@ G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eComApp\obj\Debug\net7.0\refint\eComA
 G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eComApp\obj\Debug\net7.0\eComApp.pdb
 G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eComApp\obj\Debug\net7.0\eComApp.genruntimeconfig.cache
 G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eComApp\obj\Debug\net7.0\ref\eComApp.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.AssemblyReference.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfoInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.CoreCompileInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.RazorAssemblyInfo.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.RazorAssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.sourcelink.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\appsettings.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eComApp.staticwebassets.runtime.json
@@ -545,6 +555,8 @@ C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Asp
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.AspNetCore.Cors.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.AspNetCore.DataProtection.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -631,11 +643,14 @@ C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Ext
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Features.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.FileProviders.Composite.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Hosting.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Http.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Identity.Core.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Localization.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -1065,26 +1080,17 @@ C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Utilities.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.DataAccess.pdb
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Models.pdb
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Utilities.pdb
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.AssemblyReference.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfoInputs.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfo.cs
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.CoreCompileInputs.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.RazorAssemblyInfo.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.RazorAssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets\msbuild.eComApp.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets\msbuild.build.eComApp.props
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.eComApp.props
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.eComApp.props
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets.pack.json
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets.build.json
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\scopedcss\bundle\eComApp.styles.css
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\scopedcss\projectbundle\eComApp.bundle.scp.css
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.CopyComplete
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.Up2Date
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\refint\eComApp.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.pdb

@@ -17,6 +17,10 @@ namespace eComApp.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
+            if (TempData["NewReg"]!=null && Request.Cookies["CartData"]!=null)
+            {
+                ViewData["SaveCartToDB"] = "true";
+            }
             return View();
         }
 

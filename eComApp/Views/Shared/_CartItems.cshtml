@@ -1,4 +1,4 @@
-﻿@model List<CartItem>
+﻿@model List<CartItemVM>
 
 @foreach (var item in Model)
 {
@@ -44,7 +44,7 @@
 <div class="card mb-4">
     <div class="card-body p-4 d-flex flex-row">
         <div id="TotalPrice">
-            Total Price: @CartItem.TotalPrice
+            Total Price: @CartItemVM.TotalPrice
         </div>
     </div>
 </div>

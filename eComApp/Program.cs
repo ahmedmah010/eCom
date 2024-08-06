@@ -33,7 +33,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 
-builder.Services.AddValidatorsFromAssemblyContaining<AccountRegisterValidator>();
+//builder.Services.AddValidatorsFromAssemblyContaining<AccountRegisterValidator>(); //Used for FLUENT VALIDATION LIBRARY
 builder.Services.AddScoped(typeof(IRepo<>),typeof(Repo<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

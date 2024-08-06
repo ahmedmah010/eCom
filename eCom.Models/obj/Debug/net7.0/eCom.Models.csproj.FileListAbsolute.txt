@@ -30,6 +30,7 @@ C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.Ge
 C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.AssemblyInfoInputs.cache
 C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.AssemblyInfo.cs
 C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.csproj.CoreCompileInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.sourcelink.json
 C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\refint\eCom.Models.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eCom.Models\obj\Debug\net7.0\eCom.Models.pdb

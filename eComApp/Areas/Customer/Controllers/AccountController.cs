@@ -1,11 +1,7 @@
 ﻿using eCom.DataAccess.Repos.IRepos;
 using eCom.Models;
-using eCom.Models.Validators;
 using eCom.Models.ViewModels;
 using eCom.Utilities;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using FluentValidation.Results;
 using FormHelper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -21,16 +17,14 @@ namespace eComApp.Areas.Customer.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        private readonly IValidator<AccountRegisterVM> _regValidator;
+        //private readonly IValidator<AccountRegisterVM> _regValidator; Used for FLUENT VALIDATION LIB
         private readonly IRepo<UserAddress> _userAdrsRepo;
         public AccountController(UserManager<AppUser> um,
-                                IValidator<AccountRegisterVM> regValidator, 
                                 SignInManager<AppUser> signInManager,
                                 IRepo<UserAddress> userAdrs
                                 )
         {
             _userManager = um;
-            _regValidator = regValidator;
             _signInManager = signInManager;
             _userAdrsRepo = userAdrs;
         }
@@ -41,15 +35,8 @@ namespace eComApp.Areas.Customer.Controllers
         [HttpPost]
         public async Task<IActionResult> Register([FromForm]AccountRegisterVM _regVM)
         {
-            ValidationResult _regValidationResult = await _regValidator.ValidateAsync(_regVM); 
             if (ModelState.IsValid)
             {
-                if(!_regValidationResult.IsValid)
-                {
-                    _regValidationResult.AddToModelState(ModelState);
-                }
-                else
-                {
                     AppUser _newUser = new AppUser();
                     _newUser.UserName = _regVM.UserName;
                     _newUser.Email = _regVM.Email;
@@ -59,17 +46,17 @@ namespace eComApp.Areas.Customer.Controllers
                     if (_regResult.Succeeded)
                     {
                         await _userManager.AddToRoleAsync(_newUser, Role.User);
-                        return RedirectToAction("Index", "Home");
+                        TempData["NewReg"] = "true";
+                        return RedirectToAction("Login");
                     }
                     else
                     {
                         foreach(var err in _regResult.Errors) 
                         {
-                            Console.WriteLine(err.Code);
                             ModelState.AddModelError("", err.Description);
                         }
                     }
-                }
+                
             }
             return View(_regVM);
         }
@@ -90,11 +77,11 @@ namespace eComApp.Areas.Customer.Controllers
                 AppUser _user = await _userManager.FindByNameAsync(_loginVM.UserName);
                 if( _user == null )
                 {
-                    ModelState.AddModelError("UserName", "username is not found");
+                    ModelState.AddModelError("UserName", "Username is not found");
                 }
                 else if(!(await _userManager.CheckPasswordAsync(_user, _loginVM.Password)))
                 {
-                    ModelState.AddModelError("Password", "wrong password");
+                    ModelState.AddModelError("Password", "Wrong password");
                 }
                 else
                 {
@@ -108,7 +95,7 @@ namespace eComApp.Areas.Customer.Controllers
                     {
                         _authProperties.IsPersistent = false;
                     }
-                    await _signInManager.SignInAsync(_user, _authProperties);
+                    await _signInManager.SignInAsync(_user, _authProperties); //creates cookie aka logs in
                     if (TempData["ReturnUrl"]!=null)
                     {
                         string _url = TempData["ReturnUrl"] as string;
@@ -124,7 +111,7 @@ namespace eComApp.Areas.Customer.Controllers
         {
             if(User.Identity.IsAuthenticated)
             {
-                await _signInManager.SignOutAsync();
+                await _signInManager.SignOutAsync(); //removes the cookie
             }
             return RedirectToAction("Index","Home");
         }

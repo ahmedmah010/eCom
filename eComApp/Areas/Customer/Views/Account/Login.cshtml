@@ -5,7 +5,7 @@
 
 <form asp-controller="Account" asp-action="Login" method="post">
     <div class="form-group">
-        <label>Username</label>
+        <label asp-for="UserName"></label>
         <input type="text" class="form-control" placeholder="Username" asp-for="UserName">
         <span class="text-danger" asp-validation-for="UserName"></span>
     </div>
@@ -20,3 +20,8 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

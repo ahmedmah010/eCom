@@ -15,6 +15,10 @@ namespace eCom.Models
 
         //Nagivation Propery
         virtual public List<UserAddress> Addresses { get; set; }
+
+        public virtual List<UserCartItem>? CartItems { get; set; }
+
+ 
     }
    
 }
