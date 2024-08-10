@@ -22,6 +22,7 @@ namespace eCom.DataAccess.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         
+        public DbSet<ProductComment> ProductComments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

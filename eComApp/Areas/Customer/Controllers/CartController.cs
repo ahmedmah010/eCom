@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using NuGet.Protocol;
 using System.Text.Json.Nodes;
@@ -46,6 +47,7 @@ namespace eComApp.Areas.Customer.Controllers
         }
         private List<CartItemVM> GetCartItemsFromCookie()
         {
+            CartItemVM.TotalPrice = 0;
             List<CartItemVM> cartItems = new List<CartItemVM>();
             if (Request.Cookies["CartData"] != null)
             {
@@ -56,6 +58,7 @@ namespace eComApp.Areas.Customer.Controllers
         }
         private async Task<List<CartItemVM>> GetCartItemsFromDB()
         {
+            CartItemVM.TotalPrice = 0;
             List<CartItemVM> cartItemsVM = new List<CartItemVM >();
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             user = _context.Set<AppUser>().Include(u => u.CartItems).FirstOrDefault(u=>u.Id == user.Id);
@@ -65,6 +68,8 @@ namespace eComApp.Areas.Customer.Controllers
                 if (prd != null)
                 {
                     cartItemsVM.Add(new CartItemVM { ProductId = item.ProductId, Brand = prd.Brand, Image = prd.Images[0].Name, ProductPrice = prd.CurrentPrice, Qty = item.Qty, Title = prd.Title, SubTotal = item.Qty * prd.CurrentPrice });
+                    CartItemVM.TotalPrice += (item.Qty*prd.CurrentPrice);
+                    
                 }
             }
 
@@ -84,11 +89,39 @@ namespace eComApp.Areas.Customer.Controllers
             }
             return View(cartItemsVM);
         }
+        [Authorize]
         private void AddCartItemToDB(Product prd)
         {
             AppUser user = _userManager.GetUserAsync(User).Result;
-            user = _context.Set<AppUser>().Include(u=>u.CartItems).FirstOrDefault(u=>u.Id==user.Id);
-            user.CartItems.Add(new UserCartItem { ProductId = prd.Id, Qty = 1});
+            UserCartItem? userCartItem = user.CartItems.FirstOrDefault(c => c.ProductId == prd.Id); //means prod already exists in the cart
+            if (userCartItem!=null)
+            {
+                userCartItem.Qty += 1;
+            }
+            else
+            {
+                user.CartItems.Add(new UserCartItem { ProductId = prd.Id, Qty = 1 });
+            }
+            CartItemVM.TotalPrice += prd.CurrentPrice;
+            _context.SaveChanges();
+        }
+        [Authorize]
+        private void DeleteCartItemFromDB(int id)
+        {
+            AppUser user = _userManager.GetUserAsync(User).Result;
+            UserCartItem userCartItem = user.CartItems.FirstOrDefault(c=>c.ProductId==id);
+            if (userCartItem != null)
+            {
+                CartItemVM.TotalPrice -= (userCartItem.Qty * _context.Products.Find(userCartItem.ProductId).CurrentPrice);
+                _context.Remove(userCartItem);
+                _context.SaveChanges();
+            }
+        }
+        [Authorize]
+        private void UpdateUserCartItemQuan(int id, int newQuan)
+        {
+            AppUser user = _userManager.GetUserAsync(User).Result;
+            user.CartItems.First(c=>c.ProductId==id).Qty = newQuan;
             _context.SaveChanges();
         }
         public IActionResult Add(int Id)
@@ -109,9 +142,10 @@ namespace eComApp.Areas.Customer.Controllers
                     {
                         cartItems = JsonConvert.DeserializeObject<List<CartItemVM>>(Request.Cookies["CartData"]);
                     }
-                    if (cartItems.Any(ci => ci.ProductId == Id))
+                    CartItemVM? cartItemVM = cartItems.FirstOrDefault(c=>c.ProductId==Id); //means prod already exists in cart cookie
+                    if (cartItemVM!=null)
                     {
-                        UpdateCartItemQuan(Id, 1);
+                        UpdateCartItemQuan(Id, cartItemVM.Qty+1);
                     }
                     else
                     {
@@ -127,52 +161,79 @@ namespace eComApp.Areas.Customer.Controllers
         }
         public ActionResult UpdateCartItemQuan(int Id, int quan)
         {
-            List<CartItemVM> cartItems = JsonConvert.DeserializeObject<List<CartItemVM>>(Request.Cookies["CartData"]);
             Product p = _context.Products.Find(Id);
-            if (p.CurrentQuantity >= quan)
-            {
-                cartItems.Find(ci => ci.ProductId == Id).Qty = quan;
-                Response.Cookies.Delete("CartData");
-                Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), new CookieOptions { Expires = DateTime.Now.AddDays(15) });
-            }
-            else
+            if (p.CurrentQuantity < quan)
             {
                 TempData["QuanExceeded"] = Id.ToString();
             }
+            else
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    UpdateUserCartItemQuan(Id, quan);
+                }
+                else
+                {
+                    List<CartItemVM> cartItems = JsonConvert.DeserializeObject<List<CartItemVM>>(Request.Cookies["CartData"]);
+                    cartItems.Find(ci => ci.ProductId == Id).Qty = quan;
+                    Response.Cookies.Delete("CartData");
+                    Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), new CookieOptions { Expires = DateTime.Now.AddDays(15) });
+                }
+            }
             return RedirectToAction("CartItemsPV");
         }
-        public IActionResult CartItemsPV()
+        public async Task<IActionResult> CartItemsPV()
         {
-            return PartialView("_CartItems", GetCartItemsFromCookie());
+            List<CartItemVM> cartItemsVM;
+            if (User.Identity.IsAuthenticated)
+            {
+                cartItemsVM = await GetCartItemsFromDB();
+            }
+            else 
+            {
+                cartItemsVM = GetCartItemsFromCookie();
+            }
+            
+            return PartialView("_CartItems", cartItemsVM);
         }
         public IActionResult DeleteCartItem(int id)
         {
-            List<CartItemVM> cartItems = JsonConvert.DeserializeObject<List<CartItemVM>>(Request.Cookies["CartData"]);
-            CartItemVM target = cartItems.Find(x => x.ProductId == id);
-            Product p = _context.Products.FirstOrDefault(p => p.Id == target.ProductId);
-            CartItemVM.TotalPrice -= (target.Qty*p.CurrentPrice);
-            cartItems.Remove(target);
-            Response.Cookies.Delete("CartData");
-            if (cartItems.Count != 0)
+            if (User.Identity.IsAuthenticated)
             {
-                Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), new CookieOptions { Expires = DateTime.Now.AddDays(15) });
+                DeleteCartItemFromDB(id);
+            }
+            else
+            {
+                List<CartItemVM> cartItems = JsonConvert.DeserializeObject<List<CartItemVM>>(Request.Cookies["CartData"]);
+                CartItemVM target = cartItems.Find(x => x.ProductId == id);
+                //Product p = _context.Products.FirstOrDefault(p => p.Id == target.ProductId);
+                CartItemVM.TotalPrice -= (target.Qty * target.ProductPrice);
+                cartItems.Remove(target);
+                Response.Cookies.Delete("CartData");
+                if (cartItems.Count != 0)
+                {
+                    Response.Cookies.Append("CartData", JsonConvert.SerializeObject(cartItems), new CookieOptions { Expires = DateTime.Now.AddDays(15) });
+                }
             }
             return RedirectToAction("Index");
         }
         [Authorize]
         public async Task<IActionResult> SaveCartTCookieToDB()
         {
-            if (User.Identity.IsAuthenticated)
+            List<CartItemVM> cartItems = GetCartItemsFromCookie();
+            if (!cartItems.IsNullOrEmpty()) //To avoid calling the same method more than one time
             {
-                List<CartItemVM> cartItems = GetCartItemsFromCookie();
                 AppUser user = await _userManager.GetUserAsync(User);
                 foreach (var item in cartItems)
                 {
                     user.CartItems.Add(new UserCartItem { ProductId = item.ProductId, Qty = item.Qty, User = user});
                 }
                 _context.SaveChanges();
+                TempData["SaveCartToDB"] = "1";
+                Response.Cookies.Delete("CartData");
+                cartItems.Clear();
             }
-            return RedirectToAction("Cart", "Index");
+            return RedirectToAction("Index", "Cart");
         }
 
     }

@@ -19,14 +19,18 @@ namespace eComApp.Areas.Customer.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         //private readonly IValidator<AccountRegisterVM> _regValidator; Used for FLUENT VALIDATION LIB
         private readonly IRepo<UserAddress> _userAdrsRepo;
+        private readonly IRepo<AppUser> _appUserRepo;
         public AccountController(UserManager<AppUser> um,
                                 SignInManager<AppUser> signInManager,
-                                IRepo<UserAddress> userAdrs
+                                IRepo<UserAddress> userAdrs,
+                                IRepo<AppUser> appUserRepo
+
                                 )
         {
             _userManager = um;
             _signInManager = signInManager;
             _userAdrsRepo = userAdrs;
+            _appUserRepo = appUserRepo;
         }
         public IActionResult Register()
         {
@@ -200,6 +204,18 @@ namespace eComApp.Areas.Customer.Controllers
                 }
             }
             return RedirectToAction("Address", "Account");
+        }
+
+        [Authorize]
+        public async Task<IActionResult> DeleteAccount() //for debugging purposes
+        {
+            AppUser? user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                await _signInManager.SignOutAsync(); //To delete the authenticaion cookie
+                await _userManager.DeleteAsync(user);
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 

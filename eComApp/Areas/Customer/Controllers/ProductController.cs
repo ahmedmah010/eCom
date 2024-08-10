@@ -162,6 +162,18 @@ namespace eComApp.Areas.Customer.Controllers
             }
             return PartialView("~/Views/Shared/Customer_ProductPV/_ProductSearch.cshtml", SearchedProducts);
         }
+
+        /*product details*/
+        public IActionResult ProductDetails(int id)
+        {
+            Product? prd = _ProductRepo.Get(prd => prd.Id == id);
+            if (prd != null)
+            {
+                return View(prd);
+            }
+            return RedirectToAction("Index", "Home");
+
+        }
     }
 }
 

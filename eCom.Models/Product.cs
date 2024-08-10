@@ -25,14 +25,16 @@ namespace eCom.Models
         public string? Description { get; set; }
         
         public int CategoryId { get; set; }
-        //Navigation Property
+        //Navigation Properties
         [ValidateNever]
         public virtual Category Category { get; set; }
-        //Skip Navigation 
+
         public virtual IList<Tag>? Tags { get; set; }
-        //Navigation Property
+
         public virtual List<ProductTag>? ProdTag { get; set; }
-        //Navigation Property
+       
         public virtual List<ProductImage> Images { get; set; }
+
+        public virtual ICollection<ProductComment>? ProductsComments { get; set; } = new HashSet<ProductComment>(); 
     }
 }

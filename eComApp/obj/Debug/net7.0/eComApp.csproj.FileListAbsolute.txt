@@ -521,16 +521,6 @@ G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eComApp\obj\Debug\net7.0\refint\eComA
 G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eComApp\obj\Debug\net7.0\eComApp.pdb
 G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eComApp\obj\Debug\net7.0\eComApp.genruntimeconfig.cache
 G:\Desktop stuff\ASP.NET CORE WEB APP\eCom\eComApp\obj\Debug\net7.0\ref\eComApp.dll
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.AssemblyReference.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfoInputs.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfo.cs
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.CoreCompileInputs.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.RazorAssemblyInfo.cache
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.RazorAssemblyInfo.cs
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.sourcelink.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\appsettings.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eComApp.staticwebassets.runtime.json
@@ -1080,6 +1070,16 @@ C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Utilities.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.DataAccess.pdb
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Models.pdb
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\eCom.Utilities.pdb
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.AssemblyReference.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfoInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.AssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.csproj.CoreCompileInputs.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.RazorAssemblyInfo.cache
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.RazorAssemblyInfo.cs
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.sourcelink.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\staticwebassets\msbuild.eComApp.Microsoft.AspNetCore.StaticWebAssets.props

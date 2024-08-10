@@ -14,7 +14,7 @@
                     We have noticed a previous cart items added before registration, do you want to import them into your account?
                 </div>
                 <div style="display:flex;justify-content:center;align-items:center;gap:10px;padding:15px;">
-                    <button type="button" class="btn btn-success">Yes</button>
+                    <a asp-area="Customer" asp-controller="Cart" asp-action="SaveCartTCookieToDB" class="btn btn-success">Yes</a>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
                 </div>
             </div>
@@ -30,7 +30,7 @@
 @section Scripts{
     <script type="text/javascript">
         $(document).ready(function(){
-            var msg = @ViewData["SaveCartToDB"];
+            var msg = @TempData["SaveCartToDB"];
             if (msg) {
                 $('#SaveCartToDB').modal("show");
             }

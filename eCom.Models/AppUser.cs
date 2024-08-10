@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace eCom.Models
         virtual public List<UserAddress> Addresses { get; set; }
 
         public virtual List<UserCartItem>? CartItems { get; set; }
+
+        public virtual ICollection<ProductComment>? ProductsComments { get; set; } = new HashSet<ProductComment>();
 
  
     }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("eCom.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+870d70e036ad44af089ffee9881e4eed4af86538")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f6de063d75f29cdfc99ca7acefaaf35de27da6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("eCom.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("eCom.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

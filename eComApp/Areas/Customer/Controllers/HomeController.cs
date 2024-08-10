@@ -19,7 +19,7 @@ namespace eComApp.Areas.Customer.Controllers
         {
             if (TempData["NewReg"]!=null && Request.Cookies["CartData"]!=null)
             {
-                ViewData["SaveCartToDB"] = "true";
+                TempData["SaveCartToDB"] = "1";
             }
             return View();
         }
