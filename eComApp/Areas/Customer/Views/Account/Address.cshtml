@@ -69,7 +69,7 @@
 @section Scripts {
     <script type="text/javascript">
 
-        function BindModel(modelId){
+        function BindModel(modelId){ //this function is used to return either an empty form (for new address) or a filled form (for editing) as we're using a signle ootstrap modal for both cases
             var _url = '@Url.Action("UpsertAddress","Account")'
             $.ajax({
                 url: _url,
@@ -79,7 +79,7 @@
                 }
             });
         }
-        function ChangeAddressToBeDeleted(id)
+        function ChangeAddressToBeDeleted(id) //this one is used to set the hidden input tag in the bootstrap form with the id of the address wanted to be deleted
         {
             $('#AddressToBeDeleted').val(id);
         }

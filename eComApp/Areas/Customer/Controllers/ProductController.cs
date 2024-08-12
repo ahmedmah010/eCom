@@ -3,6 +3,8 @@ using eCom.Models;
 using eCom.Models.ViewModels;
 using eCom.Utilities;
 using eCom.Utilities.ExtentionMethods;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -13,11 +15,15 @@ namespace eComApp.Areas.Customer.Controllers
     {
         private readonly IRepo<Product> _ProductRepo;
         private readonly IRepo<Category> _CategoryRepo;
+        private readonly IRepo<ProductComment> _ProductCommentRepo;
+        private readonly UserManager<AppUser> _UserManager;
         private int PageSize = 3; 
-        public ProductController(IRepo<Product> Prod, IRepo<Category> Cat)
+        public ProductController(IRepo<Product> Prod, IRepo<Category> Cat, IRepo<ProductComment> _prodComment, UserManager<AppUser> _usermang)
         {
             _ProductRepo = Prod;
             _CategoryRepo = Cat;
+            _ProductCommentRepo = _prodComment;
+            _UserManager = _usermang;
         }
 
 
@@ -173,6 +179,71 @@ namespace eComApp.Areas.Customer.Controllers
             }
             return RedirectToAction("Index", "Home");
 
+        }
+        [Authorize]
+        public IActionResult UpsertProdComment(int Id)
+        {
+            ProductCommentVM productCommentVM = new ProductCommentVM();
+            if (Id == 0) //New Comment
+            {
+                return PartialView("_UpsertProdComment", productCommentVM);
+            }
+            else //edit
+            {
+                ProductComment prodComment = _ProductCommentRepo.Get(comment=>comment.Id == Id);
+                productCommentVM.Id = prodComment.Id;
+                productCommentVM.Title = prodComment.Title;
+                productCommentVM.Description = prodComment.Description;
+                productCommentVM.Rating = prodComment.Rating;
+                return PartialView("_UpsertProdComment", productCommentVM);
+            }
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult UpsertProdComment(ProductCommentVM prodCommentVM, int prodId)
+        {
+            //prodid, commentid
+            if (ModelState.IsValid)
+            {
+                if (prodCommentVM.Id == 0) //new comment
+                {
+                    ProductComment prodComment = new ProductComment
+                    {
+                        Title = prodCommentVM.Title,
+                        Description = prodCommentVM.Description,
+                        Rating = prodCommentVM.Rating,
+                        ProdId = prodId,
+                        UserId = _UserManager.GetUserId(User)
+                    };
+                    _ProductCommentRepo.add(prodComment);
+                }
+                else //update
+                {
+                    ProductComment _prodComment = _ProductCommentRepo.Get(c=>c.Id == prodCommentVM.Id);
+                    if (_prodComment != null && _prodComment.UserId == _UserManager.GetUserId(User) && _prodComment.ProdId == prodId)
+                    {
+                        _prodComment.Title = prodCommentVM.Title;
+                        _prodComment.Description = prodCommentVM.Description;
+                        _prodComment.Rating = prodCommentVM.Rating;
+                        _ProductCommentRepo.update(_prodComment);
+                    }
+                }
+                _ProductCommentRepo.SaveChanges();
+                return Content("");
+            }
+            return PartialView("_UpsertProdComment", prodCommentVM);
+        }
+
+        [Authorize]
+        public IActionResult DeleteProdComment(int commentId, int prodId)
+        {
+            ProductComment prodComment = _ProductCommentRepo.Get(c => c.Id == commentId);
+            if(prodComment!=null && (prodComment.UserId == _UserManager.GetUserId(User) || User.IsInRole(Role.Admin)))
+            {
+                _ProductCommentRepo.remove(prodComment);
+                _ProductCommentRepo.SaveChanges();
+            }
+            return RedirectToAction("ProductDetails", "Product", new {Id=prodId});
         }
     }
 }

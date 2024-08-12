@@ -12,8 +12,8 @@ using eCom.DataAccess.Data;
 namespace eCom.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240810110526_AddedProdComment")]
-    partial class AddedProdComment
+    [Migration("20240811110949_AddedProductReviews")]
+    partial class AddedProductReviews
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -308,7 +308,7 @@ namespace eCom.DataAccess.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("ProdId")
                         .HasColumnType("int");
 
                     b.Property<int>("Rating")
@@ -319,6 +319,7 @@ namespace eCom.DataAccess.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("VerifiedPurchase")
@@ -326,11 +327,11 @@ namespace eCom.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProdId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ProductComments");
+                    b.ToTable("ProductsComments");
                 });
 
             modelBuilder.Entity("eCom.Models.ProductImage", b =>
@@ -520,14 +521,16 @@ namespace eCom.DataAccess.Migrations
             modelBuilder.Entity("eCom.Models.ProductComment", b =>
                 {
                     b.HasOne("eCom.Models.Product", "Product")
-                        .WithMany("ProductsComments")
-                        .HasForeignKey("ProductId")
+                        .WithMany("ProductComments")
+                        .HasForeignKey("ProdId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("eCom.Models.AppUser", "User")
                         .WithMany("ProductsComments")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
 
@@ -604,7 +607,7 @@ namespace eCom.DataAccess.Migrations
 
                     b.Navigation("ProdTag");
 
-                    b.Navigation("ProductsComments");
+                    b.Navigation("ProductComments");
                 });
 
             modelBuilder.Entity("eCom.Models.Tag", b =>

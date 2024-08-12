@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\Customer\Views\Product\ProductDetails.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />
     <PackageReference Include="FormHelper" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.9" />
@@ -32,18 +28,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Areas\Customer\Views\Product\ProductDetails.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Areas\Customer\Views\Product\ProductDetails.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Areas\Customer\Views\Product\ProductDetails.cshtml" />
   </ItemGroup>
 
 </Project>

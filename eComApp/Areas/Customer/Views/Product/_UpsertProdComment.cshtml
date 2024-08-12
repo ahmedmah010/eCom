@@ -1,0 +1,22 @@
+﻿@model ProductCommentVM
+
+
+<form id="CommentForm">
+    <input asp-for="Id" hidden />
+    <label>Rating</label>
+    <input type="number" min="1" max="5" asp-for="Rating"/>
+    <label>Title</label>
+    <input type="text" asp-for="Title"/>
+    <label>Description</label>
+    <input type="text" asp-for="Description"/>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" onclick="ajaxFormSubmit()" class="btn btn-primary">@(Model.Id == 0 ? "Add" : "Save Changes")</button>
+    </div>
+</form>
+
+
+@*The ajaxFormSubmit is used to submit the form using AJAX, why? because if the form has some unvalid data and we submitted it normally without ajax
+    then the whole page will reload and we will lose the current modal, thus, the user won't get the errors msgs and will be confused what invalid data he entered, but 
+    with the ajax + ActionResult we can either return the same partialview if there's something invalid or just reload the page when succeded.
+*@

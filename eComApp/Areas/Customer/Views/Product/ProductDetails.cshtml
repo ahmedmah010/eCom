@@ -1,5 +1,130 @@
-﻿@model Product
+﻿@using eCom.Utilities
+@model Product
+@{
+    bool IsUserAuthenticated = User.Identity.IsAuthenticated;
+}
+
+
+<h3>@Model.Title</h3>
+<p>Price: @Model.CurrentPrice</p>
+
+
+<hr />
+<h2>Reviews</h2>
+@if (IsUserAuthenticated)
+{
+    <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ProdCommentModal" onclick="Upsert(0)">Add Review</a>
+}
+else
+{
+    <p>You've to login to add a review'</p>
+}
+@foreach(var comment in Model.ProductComments)
+{
+    <p>@comment.User.Fname @comment.User.Lname</p> <span>@(comment.VerifiedPurchase?"Verified Purchase":"")</span>
+    <p>@comment.CreatedDate.ToString("ddd, dd MMM yyy")</p>
+    <p>Rating: @comment.Rating</p>
+    <hr />
+    @if(!String.IsNullOrEmpty(comment.Description))
+    {
+        <p style="font-weight:bold">@comment.Title</p>
+        <p>@comment.Description</p>
+        
+    }
+        @if (IsUserAuthenticated && (User.IsInRole(Role.Admin) || User.Identity.Name == comment.User.UserName))
+    {
+        <a class="btn btn-info" onclick="Upsert(@comment.Id)" data-bs-toggle="modal" data-bs-target="#ProdCommentModal">Edit</a>
+        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProdCommentModal" onclick="GetProdCommentId(@comment.Id)">Delete</a>
+    }
+    <hr />
+    <hr />
+}
 
 
 
 
+
+<!-- Upsert Comment Modal -->
+<div class="modal fade" id="ProdCommentModal" tabindex="-1" role="dialog" aria-labelledby="ProdCommentModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id="CommentContainer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<!-- DeleteAddress Modal -->
+<div class="modal fade" id="deleteProdCommentModal" tabindex="-1" role="dialog" aria-labelledby="deleteProdCommentModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form asp-controller="Product" asp-action="DeleteProdComment" method="post">
+                    <input value="" id="CommentToBeDeleted" name="commentId" hidden />
+                    <input value="@Model.Id" name="prodId" hidden />
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+
+@section Scripts {
+    <script type="text/javascript">
+        function Upsert(commentId) { //this function is used to return either an empty form (for new comment) or a filled form (for editing) as we're using a signle bootstrap modal for both cases
+            var _url = '@Url.Action("UpsertProdComment", "Product")'
+            $.ajax({
+                url: _url,
+                data: { Id: commentId },
+                success: function (res) {
+                    $('#CommentContainer').html(res);
+                }
+            });
+        }
+
+
+
+        function ajaxFormSubmit() { 
+            var _url = '@Url.Action("UpsertProdComment", "Product")';
+            var formElement = $('#CommentForm')[0]; //this is to get the DOM, and [0] selects the first (and in this case, the only) element with id CommenForm
+            var formData = new FormData(formElement);
+            formData.append("prodId", @Model.Id);
+            console.log(formData);
+            $.ajax({
+                type: "POST",
+                url: _url,
+                data: formData,
+                contentType: false, //to ensure jQuery doesn't process the data
+                processData: false, //to prevent jQuery from converting the FormData object into a query string
+                success: function (res) {
+                    if (res == '') 
+                    {
+                        location.reload();
+                    }
+                    else
+                    {
+                        $('#CommentContainer').html(res);
+                        $('#ProdCommentModal').modal('show');
+                    }
+                    $('#CommentContainer').html(res);
+                }
+            });
+        }
+
+
+        function GetProdCommentId(commentId) 
+        {
+            $('#CommentToBeDeleted').val(commentId);
+        }
+
+    </script>
+
+}
