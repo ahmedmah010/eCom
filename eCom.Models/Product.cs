@@ -35,6 +35,8 @@ namespace eCom.Models
        
         public virtual List<ProductImage> Images { get; set; }
 
-        public virtual ICollection<ProductComment>? ProductComments { get; set; } = new HashSet<ProductComment>(); 
+        public virtual ICollection<ProductComment>? ProductComments { get; set; } = new HashSet<ProductComment>();
+        public virtual ICollection<Coupon>? Coupons { get; set; } = new HashSet<Coupon>();
+
     }
 }

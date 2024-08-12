@@ -16,5 +16,7 @@ namespace eCom.Models
 
         [ValidateNever]
         public virtual List<Product>? Products { get; set; }
+
+        public virtual ICollection<Coupon>? Coupons { get; set; } = new HashSet<Coupon>();
     }
 }

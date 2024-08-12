@@ -1,0 +1,26 @@
+﻿@model List<Coupon>
+
+
+<a class="btn btn-dark">Add Coupon</a>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Code</th>
+            <th scope="col">Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var coupon in Model)
+        {
+            <tr>
+                <td>@coupon.Id</td>
+                <td>@coupon.Code</td>
+                <td>View</td>
+            </tr>
+        }
+    </tbody>
+</table>

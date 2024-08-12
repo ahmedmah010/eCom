@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\areas\\customer\\views\\product\\productdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\areas\\customer\\views\\product\\productdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\areas\\admin\\controllers\\couponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\areas\\admin\\controllers\\couponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\areas\\customer\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\areas\\customer\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\coupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\coupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\areas\\customer\\views\\product\\_upsertprodcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\areas\\customer\\views\\product\\_upsertprodcomment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\viewmodels\\couponvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\viewmodels\\couponvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\viewmodels\\productcommentvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\viewmodels\\productcommentvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\areas\\admin\\views\\coupon\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\areas\\admin\\views\\coupon\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,53 +31,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProductCommentVM.cs",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\ViewModels\\ProductCommentVM.cs",
-              "RelativeDocumentMoniker": "eCom.Models\\ViewModels\\ProductCommentVM.cs",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\ViewModels\\ProductCommentVM.cs",
-              "RelativeToolTip": "eCom.Models\\ViewModels\\ProductCommentVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T00:34:45.964Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Admin\\Views\\Coupon\\Index.cshtml",
+              "RelativeDocumentMoniker": "eComApp\\Areas\\Admin\\Views\\Coupon\\Index.cshtml",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Admin\\Views\\Coupon\\Index.cshtml",
+              "RelativeToolTip": "eComApp\\Areas\\Admin\\Views\\Coupon\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-12T08:14:28.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "_UpsertProdComment.cshtml",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Views\\Product\\_UpsertProdComment.cshtml",
-              "RelativeDocumentMoniker": "eComApp\\Areas\\Customer\\Views\\Product\\_UpsertProdComment.cshtml",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Views\\Product\\_UpsertProdComment.cshtml",
-              "RelativeToolTip": "eComApp\\Areas\\Customer\\Views\\Product\\_UpsertProdComment.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-11T09:01:54.189Z",
+              "Title": "CouponVM.cs",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\ViewModels\\CouponVM.cs",
+              "RelativeDocumentMoniker": "eCom.Models\\ViewModels\\CouponVM.cs",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\ViewModels\\CouponVM.cs",
+              "RelativeToolTip": "eCom.Models\\ViewModels\\CouponVM.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwAoAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T07:51:39.773Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductDetails.cshtml",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Views\\Product\\ProductDetails.cshtml",
-              "RelativeDocumentMoniker": "eComApp\\Areas\\Customer\\Views\\Product\\ProductDetails.cshtml",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Views\\Product\\ProductDetails.cshtml",
-              "RelativeToolTip": "eComApp\\Areas\\Customer\\Views\\Product\\ProductDetails.cshtml",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAAAEQAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-10T13:31:22.71Z",
+              "Title": "CouponController.cs",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Admin\\Controllers\\CouponController.cs",
+              "RelativeDocumentMoniker": "eComApp\\Areas\\Admin\\Controllers\\CouponController.cs",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Admin\\Controllers\\CouponController.cs",
+              "RelativeToolTip": "eComApp\\Areas\\Admin\\Controllers\\CouponController.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAkwGoAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T07:47:28.733Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "eComApp\\Areas\\Customer\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "eComApp\\Areas\\Customer\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAAOIAAAAAAAAAAAAmwO0AAABFAAAA",
+              "Title": "Coupon.cs",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Coupon.cs",
+              "RelativeDocumentMoniker": "eCom.Models\\Coupon.cs",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Coupon.cs",
+              "RelativeToolTip": "eCom.Models\\Coupon.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAABkAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T12:57:27.805Z",
+              "WhenOpened": "2024-08-12T04:23:21.209Z",
               "EditorCaption": ""
             }
           ]
