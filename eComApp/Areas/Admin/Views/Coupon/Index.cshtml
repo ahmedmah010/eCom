@@ -1,7 +1,7 @@
 ﻿@model List<Coupon>
 
 
-<a class="btn btn-dark">Add Coupon</a>
+<a class="btn btn-dark" asp-controller="Coupon" asp-action="Upsert">Add Coupon</a>
 
 <hr />
 
@@ -19,8 +19,46 @@
             <tr>
                 <td>@coupon.Id</td>
                 <td>@coupon.Code</td>
-                <td>View</td>
+                <td><button data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="ViewCouponDetails(@coupon.Id)" class="btn btn-success">View</button></td>
             </tr>
         }
     </tbody>
 </table>
+
+
+
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="CouponDetailsCard">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts 
+{
+    <script type="text/javascript">
+        function ViewCouponDetails(Id) {
+            $.ajax({
+                url: '@Url.Action("CouponDetailsPV","Coupon")',
+                data: { Id:Id },
+                success:function(res){
+                    $('#CouponDetailsCard').html(res);
+                }
+            });
+        }
+    </script>
+}

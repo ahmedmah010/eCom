@@ -12,12 +12,12 @@ namespace eCom.DataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Coupon",
+                name: "Coupons",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DiscountType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DiscountValue = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -32,7 +32,7 @@ namespace eCom.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Coupon", x => x.Id);
+                    table.PrimaryKey("PK_Coupons", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,9 +52,9 @@ namespace eCom.DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CategoryCoupon_Coupon_CouponsId",
+                        name: "FK_CategoryCoupon_Coupons_CouponsId",
                         column: x => x.CouponsId,
-                        principalTable: "Coupon",
+                        principalTable: "Coupons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -70,9 +70,9 @@ namespace eCom.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_CouponProduct", x => new { x.ApplicableProductsId, x.CouponsId });
                     table.ForeignKey(
-                        name: "FK_CouponProduct_Coupon_CouponsId",
+                        name: "FK_CouponProduct_Coupons_CouponsId",
                         column: x => x.CouponsId,
-                        principalTable: "Coupon",
+                        principalTable: "Coupons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -92,6 +92,12 @@ namespace eCom.DataAccess.Migrations
                 name: "IX_CouponProduct_CouponsId",
                 table: "CouponProduct",
                 column: "CouponsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Coupons_Code",
+                table: "Coupons",
+                column: "Code",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -104,7 +110,7 @@ namespace eCom.DataAccess.Migrations
                 name: "CouponProduct");
 
             migrationBuilder.DropTable(
-                name: "Coupon");
+                name: "Coupons");
         }
     }
 }

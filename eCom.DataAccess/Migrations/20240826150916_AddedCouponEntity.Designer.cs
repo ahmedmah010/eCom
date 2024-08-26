@@ -12,7 +12,7 @@ using eCom.DataAccess.Data;
 namespace eCom.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240812045629_AddedCouponEntity")]
+    [Migration("20240826150916_AddedCouponEntity")]
     partial class AddedCouponEntity
     {
         /// <inheritdoc />
@@ -291,7 +291,7 @@ namespace eCom.DataAccess.Migrations
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -330,7 +330,10 @@ namespace eCom.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Coupon");
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("Coupons");
                 });
 
             modelBuilder.Entity("eCom.Models.Product", b =>

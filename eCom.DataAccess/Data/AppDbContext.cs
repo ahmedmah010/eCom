@@ -21,8 +21,8 @@ namespace eCom.DataAccess.Data
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
-        
         public DbSet<ProductComment> ProductsComments { get; set; }
+        public DbSet<Coupon> Coupons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

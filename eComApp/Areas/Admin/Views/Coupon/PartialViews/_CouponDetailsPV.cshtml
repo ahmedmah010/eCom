@@ -1,0 +1,14 @@
+﻿@model Coupon
+
+<p>@Model.Code</p>
+<p>@Model.Description</p>
+<p>@Model.ExpirationDate</p>
+@if (Model.IsActive)
+{
+    <p style="color:forestgreen">Active</p>
+}
+else
+{
+    <p style="color:red">Inactive</p>
+}
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,14 @@ namespace eCom.Models.ViewModels
         public decimal DiscountValue { get; set; }
         public DateTime ExpirationDate { get; set; }
         public int UsageLimit { get; set; }
-        public int UsageCount { get; set; }
         public decimal MinPurchaseAmount { get; set; }
         public decimal MaxDiscountAmount { get; set; }
         public bool IsActive { get; set; }
         public bool IsSingleUse { get; set; }
-        public ICollection<Category>? ApplicableCategories { get; set; } = new HashSet<Category>();
+        public List<Category>? ApplicableCategories { get; set; } = new List<Category>();
+        public List<int>? SelectedCatIds { get; set; } = new List<int>();
         public List<Category>? Categories { get; set; } = new List<Category>();
     }
+
+ 
 }
