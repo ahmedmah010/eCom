@@ -10,6 +10,7 @@ using eCom.Models.Validators;
 using FormHelper;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using eCom.Models.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 //builder.Services.AddValidatorsFromAssemblyContaining<AccountRegisterValidator>(); //Used for FLUENT VALIDATION LIBRARY
 builder.Services.AddScoped(typeof(IRepo<>),typeof(Repo<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddAutoMapper(typeof(AccountProfile)); //scans the Assemply for any profiles, in our case it scans the assembly that contains the class accountprofile which is Modes assembly
 
 
 var app = builder.Build();

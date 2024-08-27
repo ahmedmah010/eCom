@@ -1,4 +1,7 @@
-﻿using eCom.DataAccess.Repos.IRepos;
+﻿using AutoMapper;
+using eCom.DataAccess;
+using eCom.DataAccess.Data;
+using eCom.DataAccess.Repos.IRepos;
 using eCom.Models;
 using eCom.Models.ViewModels;
 using eCom.Utilities;
@@ -8,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Globalization;
 
 namespace eComApp.Areas.Customer.Controllers
@@ -20,10 +24,14 @@ namespace eComApp.Areas.Customer.Controllers
         //private readonly IValidator<AccountRegisterVM> _regValidator; Used for FLUENT VALIDATION LIB
         private readonly IRepo<UserAddress> _userAdrsRepo;
         private readonly IRepo<AppUser> _appUserRepo;
+        private readonly IRepo<City> _cityRepo;
+        private readonly IMapper _mapper;
         public AccountController(UserManager<AppUser> um,
                                 SignInManager<AppUser> signInManager,
                                 IRepo<UserAddress> userAdrs,
-                                IRepo<AppUser> appUserRepo
+                                IRepo<AppUser> appUserRepo,
+                                IRepo<City> cityRepo,
+                                IMapper mapper
 
                                 )
         {
@@ -31,6 +39,8 @@ namespace eComApp.Areas.Customer.Controllers
             _signInManager = signInManager;
             _userAdrsRepo = userAdrs;
             _appUserRepo = appUserRepo;
+            _cityRepo = cityRepo;
+            _mapper = mapper;   
         }
         public IActionResult Register()
         {
@@ -124,62 +134,57 @@ namespace eComApp.Areas.Customer.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> Address()
+        public IActionResult Address()
         {
-            AppUser _user = await _userManager.FindByNameAsync(User.Identity.Name);
+            AppUser _user =  _userManager.GetUserAsync(User).Result;
             
             return View(_user.Addresses);
         }
-        //[Authorize]
-        //[HttpPost]
-        //public async Task<IActionResult> NewAddress(UserAddress _userAdrs)
-        //{
-        //    _userAdrs.UserId = (await _userManager.FindByNameAsync(User.Identity.Name)).Id;
-        //    ModelState.Remove("UserId");
-        //    ModelState.SetModelValue("UserId", new ValueProviderResult(_userAdrs.UserId));
-        //    ModelState.MarkFieldValid("UserId");
-        //    if (ModelState.IsValid)
-        //    {
-        //        _userAdrsRepo.add(_userAdrs);
-        //        _userAdrsRepo.SaveChanges();
-        //    }
-        //    return RedirectToAction("Address","Account");
-        //}
+
         [Authorize]
         public IActionResult UpsertAddress(int Id)
         {
+            SelectList CitiesSelectList = new SelectList(_cityRepo.GetAll(),"Id","Name");
+            ViewBag.Cities = CitiesSelectList;
+            UserAddressVM userAddressVM = new UserAddressVM();
             if(Id <=0 )
             {
-                return PartialView("~/Views/Shared/Customer_UserAddressPV/_UpsertAddress.cshtml", new UserAddress());
+                return PartialView("~/Views/Shared/Customer_UserAddressPV/_UpsertAddress.cshtml", userAddressVM);
             }
        
             else
             {
                 UserAddress _userAddress = _userAdrsRepo.Get(a => a.Id == Id);
-                return PartialView("~/Views/Shared/Customer_UserAddressPV/_UpsertAddress.cshtml", _userAddress);
+                if (_userAddress != null)
+                {
+
+                    userAddressVM = _mapper.Map<UserAddressVM>(_userAddress);
+
+                }
+                return PartialView("~/Views/Shared/Customer_UserAddressPV/_UpsertAddress.cshtml", userAddressVM);
             }
             
         }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> UpsertAddress(UserAddress _userAddress)
+        public IActionResult UpsertAddress(UserAddressVM _userAddress)
         {
-            _userAddress.UserId = (await _userManager.FindByNameAsync(User.Identity.Name)).Id;
-            ModelState.Remove("UserId");
-            ModelState.SetModelValue("UserId", new ValueProviderResult(_userAddress.UserId));
-            ModelState.MarkFieldValid("UserId");
+
             if (ModelState.IsValid)
             {
-                if(_userAddress.Id==0) //new address
+                UserAddress useraddrs = new UserAddress();
+                useraddrs = _mapper.Map<UserAddress>(_userAddress);
+                useraddrs.UserId = _userManager.GetUserId(User);
+
+                if (useraddrs.Id==0) //new address
                 {
-                    _userAdrsRepo.add(_userAddress);
-                    _userAdrsRepo.SaveChanges();
+                    _userAdrsRepo.add(useraddrs);
                 }
                 else //update
                 {
-                    _userAdrsRepo.update(_userAddress);
-                    _userAdrsRepo.SaveChanges();
+                    _userAdrsRepo.update(useraddrs);
                 }
+                _userAdrsRepo.SaveChanges();
                 return Content("");
             }
             else
@@ -217,6 +222,8 @@ namespace eComApp.Areas.Customer.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+
     }
 
 }

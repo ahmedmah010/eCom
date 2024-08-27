@@ -112,6 +112,7 @@ namespace eComApp.Areas.Admin.Controllers
                     _coupon.Description = couponVM.Description;
                     _coupon.IsActive = couponVM.IsActive;
                     _coupon.IsSingleUse = couponVM.IsSingleUse;
+                    _coupon.DiscountValue = couponVM.DiscountValue;
                     _coupon.DiscountType = couponVM.DiscountType;
                     _coupon.MaxDiscountAmount = couponVM.MaxDiscountAmount;
                     _coupon.MinPurchaseAmount = couponVM.MinPurchaseAmount;

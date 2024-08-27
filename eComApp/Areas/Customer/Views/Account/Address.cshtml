@@ -10,14 +10,14 @@
 {
     <div style="border:2px dotted black;padding:5px;">
         <p>@adrs.FullName</p>
+        <p>@adrs.City.Name</p>
         <p>@adrs.Street</p>
-        <p>@adrs.City</p>
         <p>@adrs.NearestLandMark</p>
         <button type="button" onclick="BindModel(@adrs.Id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddressModal">
             Edit
         </button>
         <button type="button" onclick="ChangeAddressToBeDeleted(@adrs.Id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAddressModal">
-            Delete
+            Delete 
         </button>
 
 

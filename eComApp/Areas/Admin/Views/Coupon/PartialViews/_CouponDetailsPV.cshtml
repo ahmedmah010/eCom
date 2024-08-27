@@ -1,14 +1,35 @@
-﻿@model Coupon
-
-<p>@Model.Code</p>
-<p>@Model.Description</p>
-<p>@Model.ExpirationDate</p>
-@if (Model.IsActive)
-{
-    <p style="color:forestgreen">Active</p>
+﻿@using System.Text
+@using eCom.Utilities
+@model Coupon
+@{
+    string TextColor, TextValue;
+    StringBuilder TextCategories = new StringBuilder("");
+    if(Model.IsActive)
+    {
+        TextColor = "green";
+        TextValue = "Active";
+    }
+    else
+    {
+        TextColor = "red";
+        TextValue = "InActive";
+    }
+    foreach (Category cat in Model.ApplicableCategories)
+    {
+        TextCategories.Append(cat.Name + " ");
+    }
 }
-else
-{
-    <p style="color:red">Inactive</p>
-}
 
+<p>Code: <span style="font-weight:bold">@Model.Code</span></p>
+<p>Descrption: @Model.Description</p>
+<p>Creation Date: @Model.CreationDate</p>
+<p>Expiration: @Model.ExpirationDate</p>
+<p>Min Purchase Amount: @Model.MinPurchaseAmount</p>
+<p>Max Purchase Amout: @Model.MaxDiscountAmount</p>
+<p>Single Use: @Model.IsSingleUse</p>
+<p>Usage Limit: @Model.UsageLimit</p>
+<p>Usage Count: @Model.UsageCount</p>
+<p>Discount: @Model.DiscountType - @Model.DiscountValue @((Model.DiscountType == DiscountType.Percentage)?"%":"") </p>
+<p>Status: <span style="color:@TextColor">@TextValue</span></p>
+
+<p>Applicable Categories: @TextCategories</p>

@@ -51,9 +51,9 @@ namespace eCom.DataAccess.Data
 
                 );*/
 
-
-
             base.OnModelCreating(modelBuilder);
         }
+      
+
     }
 }

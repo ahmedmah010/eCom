@@ -1,4 +1,4 @@
-﻿@model UserAddress
+﻿@model UserAddressVM
 
 <div class="modal-header">
     <h5 class="modal-title">@(Model.Id==0?"New Address":"Edit Address")</h5>
@@ -9,6 +9,8 @@
 @*asp-controller="Account" asp-action="UpsertAddress" asp-route-Id="@Model.Id"*@
 <form id="myform" method="post" asp-controller="Account" asp-action="UpsertAddress">
     <div class="modal-body">
+
+        <input hidden asp-for="Id" />
 
         <div class="form-group">
             <label>Full Name</label>
@@ -21,7 +23,9 @@
         </div>
         <div class="form-group">
             <label>City</label>
-            <input type="text" class="form-control" asp-for="City">
+            <select class="form-select" asp-items="@ViewBag.Cities" asp-for="CityId">
+                <option selected disabled>--Choose City--</option>
+            </select>
         </div>
         <div class="form-group">
             <label>Street</label>
@@ -36,10 +40,9 @@
             <input type="text" class="form-control" asp-for="AdditionalInfo">
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Make Default</label>
+            <input type="checkbox" asp-for="IsDefault" class="form-check-input">
+            <label class="form-check-label">Make Default</label>
         </div>
-        <input asp-for="UserId" hidden />
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
