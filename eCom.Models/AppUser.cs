@@ -20,6 +20,7 @@ namespace eCom.Models
         public virtual List<UserCartItem>? CartItems { get; set; }
 
         public virtual ICollection<ProductComment>? ProductsComments { get; set; } = new HashSet<ProductComment>();
+        public virtual ICollection<Order>? Orders { get; set; } = new HashSet<Order>();
 
  
     }

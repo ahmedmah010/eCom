@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\views\\shared\\customer_useraddresspv\\_upsertaddress.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\views\\shared\\customer_useraddresspv\\_upsertaddress.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\areas\\customer\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\areas\\customer\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\areas\\customer\\views\\account\\address.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\areas\\customer\\views\\account\\address.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\useraddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\useraddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\viewmodels\\useraddressvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\viewmodels\\useraddressvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\tax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\tax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserAddress.cs",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\UserAddress.cs",
-              "RelativeDocumentMoniker": "eCom.Models\\UserAddress.cs",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\UserAddress.cs",
-              "RelativeToolTip": "eCom.Models\\UserAddress.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAqAAAA",
+              "DocumentIndex": 1,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Order.cs",
+              "RelativeDocumentMoniker": "eCom.Models\\Order.cs",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Order.cs",
+              "RelativeToolTip": "eCom.Models\\Order.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T20:36:49.751Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Program.cs",
-              "RelativeDocumentMoniker": "eComApp\\Program.cs",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Program.cs",
-              "RelativeToolTip": "eComApp\\Program.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACcAAAC/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T20:34:02.333Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserAddressVM.cs",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\ViewModels\\UserAddressVM.cs",
-              "RelativeDocumentMoniker": "eCom.Models\\ViewModels\\UserAddressVM.cs",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\ViewModels\\UserAddressVM.cs",
-              "RelativeToolTip": "eCom.Models\\ViewModels\\UserAddressVM.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T17:00:28.217Z",
+              "WhenOpened": "2024-08-28T17:56:47.877Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_UpsertAddress.cshtml",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Views\\Shared\\Customer_UserAddressPV\\_UpsertAddress.cshtml",
-              "RelativeDocumentMoniker": "eComApp\\Views\\Shared\\Customer_UserAddressPV\\_UpsertAddress.cshtml",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Views\\Shared\\Customer_UserAddressPV\\_UpsertAddress.cshtml",
-              "RelativeToolTip": "eComApp\\Views\\Shared\\Customer_UserAddressPV\\_UpsertAddress.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACoAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-27T16:43:35.777Z",
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "eCom.Models\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\OrderItem.cs",
+              "RelativeToolTip": "eCom.Models\\OrderItem.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T17:51:04.196Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Address.cshtml",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Views\\Account\\Address.cshtml",
-              "RelativeDocumentMoniker": "eComApp\\Areas\\Customer\\Views\\Account\\Address.cshtml",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Views\\Account\\Address.cshtml",
-              "RelativeToolTip": "eComApp\\Areas\\Customer\\Views\\Account\\Address.cshtml",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAAAwAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-27T15:39:55.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "eComApp\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "eComApp\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAIsAAAAAAAAAAAAEwJsAAAANAAAA",
+              "Title": "Tax.cs",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Tax.cs",
+              "RelativeDocumentMoniker": "eCom.Models\\Tax.cs",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Tax.cs",
+              "RelativeToolTip": "eCom.Models\\Tax.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T12:28:43.971Z",
+              "WhenOpened": "2024-08-28T17:31:41.986Z",
               "EditorCaption": ""
             }
           ]
