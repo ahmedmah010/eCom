@@ -13,8 +13,8 @@ namespace eCom.Models
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
-        public OrderStatus Status { get; set; } = OrderStatus.Pending;
-        public PaymentMethod PaymentMethod { get; set; }
+        public string Status { get; set; } = OrderStatus.Pending;
+        public string PaymentMethod { get; set; }
         [ForeignKey("User")]
         public string UserId {  get; set; }
         public string? CouponName {  get; set; }
@@ -30,13 +30,17 @@ namespace eCom.Models
 
     }
 
-    public enum OrderStatus
+    public static class OrderStatus
     {
-        Pending, Accepted, Delivered, Rejected
+        public const string Pending = "Pending";
+        public const string Accepted = "Accepted";
+        public const string Delivered = "Delivered";
+        public const string Rejected = "Rejected";
     }
-    public enum PaymentMethod
+    public static class PaymentMethod
     {
-        COD, VISA
+        public const string COD = "COD";
+        public const string VISA = "VISA";
     }
     [NotMapped]
     [Owned]

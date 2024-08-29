@@ -1,0 +1,35 @@
+﻿@model Tax
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "New TAX" : "Update TAX";
+    List<SelectListItem> TaxTypes = new List<SelectListItem>()
+    {
+        new SelectListItem(TaxType.Percentage,TaxType.Percentage),
+        new SelectListItem(TaxType.FixedAmount,TaxType.FixedAmount)
+    };
+
+}
+
+@if(ViewBag.InvalidId ==  null)
+{
+    <form asp-controller="Tax" asp-action="Upsert" asp-route-Id="@Model.Id">
+        <div class="form-group">
+            <label asp-for="Name">TAX Name</label>
+            <input class="form-control" asp-for="Name"/>
+            <label asp-for="TaxType">TAX Type</label>
+            <select class="form-select" asp-for="TaxType" asp-items="TaxTypes">
+                <option disabled selected>--Select Type--</option>
+            </select>
+            <label asp-for="Amount">TAX Value</label>
+            <input class="form-control" asp-for="Amount" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">TAX not found</h4>
+        <p>You're trying to access an invalid TAX. Please refresh the page.'</p>
+    </div>
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("eCom.Utilities")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+474790830a8a8816047bc3e993315c1dd7dd8c00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cec88333468f0ac0036872c944d29d0d8dd9280")]
 [assembly: System.Reflection.AssemblyProductAttribute("eCom.Utilities")]
 [assembly: System.Reflection.AssemblyTitleAttribute("eCom.Utilities")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

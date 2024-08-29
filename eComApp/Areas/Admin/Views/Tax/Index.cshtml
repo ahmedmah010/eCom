@@ -1,0 +1,38 @@
+﻿@model List<Tax>
+
+@{
+    ViewData["Title"] = "Taxes";
+}
+
+
+<div class="mb-4" style="display:flex;justify-content:space-between;align-items:center">
+    <h2>Taxes</h2>
+    <a asp-controller="Tax" asp-action="Upsert" class="btn btn-success">Add Tax</a>
+</div>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">TAX Type</th>
+            <th scope="col">Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tax in Model)
+        {
+            <tr>
+                <th scope="row">@tax.Name</th>
+                <td>@tax.TaxType</td>
+                <td>@tax.Amount @(tax.TaxType==TaxType.Percentage?"%":"")</td>
+                <td>
+                    <a asp-controller="Tax" asp-action="Upsert" asp-route-Id="@tax.Id" class="btn btn-primary">Edit</a>
+                    <a asp-controller="Tax" asp-action="Delete" asp-route-Id="@tax.Id" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|solutionrelative:ecom.models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\areas\\customer\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\areas\\customer\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecomapp\\views\\shared\\_cartitems.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19BDF878-4BBC-4E55-9C66-530F38A110F5}|eComApp\\eComApp.csproj|solutionrelative:ecomapp\\views\\shared\\_cartitems.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EAA701E7-5FF6-42D9-9353-EDBE0E916E16}|eCom.Models\\eCom.Models.csproj|c:\\users\\backu\\onedrive\\desktop\\ecom\\ecom.models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,38 +31,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "_CartItems.cshtml",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Views\\Shared\\_CartItems.cshtml",
+              "RelativeDocumentMoniker": "eComApp\\Views\\Shared\\_CartItems.cshtml",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Views\\Shared\\_CartItems.cshtml",
+              "RelativeToolTip": "eComApp\\Views\\Shared\\_CartItems.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACkAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-29T23:18:21.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "eComApp\\Areas\\Customer\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eComApp\\Areas\\Customer\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "eComApp\\Areas\\Customer\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADUAAADYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-29T23:17:26.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Order.cs",
               "RelativeDocumentMoniker": "eCom.Models\\Order.cs",
               "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Order.cs",
               "RelativeToolTip": "eCom.Models\\Order.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAJAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-28T17:56:47.877Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrderItem.cs",
-              "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\OrderItem.cs",
-              "RelativeDocumentMoniker": "eCom.Models\\OrderItem.cs",
-              "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\OrderItem.cs",
-              "RelativeToolTip": "eCom.Models\\OrderItem.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T17:51:04.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Tax.cs",
               "DocumentMoniker": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Tax.cs",
               "RelativeDocumentMoniker": "eCom.Models\\Tax.cs",
               "ToolTip": "C:\\Users\\backu\\OneDrive\\Desktop\\eCom\\eCom.Models\\Tax.cs",
               "RelativeToolTip": "eCom.Models\\Tax.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-28T17:31:41.986Z",
               "EditorCaption": ""

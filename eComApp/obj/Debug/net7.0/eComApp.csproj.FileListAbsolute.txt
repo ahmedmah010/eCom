@@ -825,6 +825,8 @@ C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\System.Xml.Xm
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\System.Xml.XPath.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\System.Xml.XPath.XDocument.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\refs\WindowsBase.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\Castle.Core.dll
@@ -1096,5 +1098,3 @@ C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\refint\eComApp.dll
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.pdb
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\eComApp.genruntimeconfig.cache
 C:\Users\backu\OneDrive\Desktop\eCom\eComApp\obj\Debug\net7.0\ref\eComApp.dll
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\AutoMapper.dll
-C:\Users\backu\OneDrive\Desktop\eCom\eComApp\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

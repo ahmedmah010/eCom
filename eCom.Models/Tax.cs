@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,14 @@ namespace eCom.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public TaxType TaxType {  get; set; }
+        public string TaxType {  get; set; }
         public float Amount { get; set; }
         
     }
-    public enum TaxType
+    [NotMapped]
+    public static class TaxType
     {
-        Percentage, FixedAmount
+        public const string Percentage = "Percentage";
+        public const string FixedAmount = "Fixed Amount";
     }
 }

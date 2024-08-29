@@ -48,21 +48,16 @@
                 }
             );
         }
-        //function UpdateCartTotalPrice() {
-        //    var _url = '@Url.Action("CartTotalPrice", "Cart")';
-        //    $.ajax(
-        //        {
-        //            url: _url,
-        //            success: function (res) {
-        //                $('#TotalPrice').html(res);
-        //            },
-        //        }
-        //    );
-        //}
+
+        function CheckCoupon() {
+            var old = document.getElementById("CouponApplyButton").innerHTML
+            document.getElementById("CouponApplyButton").innerHTML = '<img width="50px" height="50px" src="https://global.discourse-cdn.com/sitepoint/original/3X/e/3/e352b26bbfa8b233050087d6cb32667da3ff809c.gif" />';
+            setTimeout(() => { document.getElementById("CouponApplyButton").innerHTML = old; document.getElementById("ValidCoupon").innerHTML = "Valid Coupon!"; }, 1000);
+        }
+    
 
     </script>
 }
-
 
 
 
