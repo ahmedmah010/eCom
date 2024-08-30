@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("eComApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cec88333468f0ac0036872c944d29d0d8dd9280")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e3f314413146ac7c613766c872bbab445f64972")]
 [assembly: System.Reflection.AssemblyProductAttribute("eComApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("eComApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

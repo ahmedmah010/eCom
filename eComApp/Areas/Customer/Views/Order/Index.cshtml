@@ -1,0 +1,46 @@
+﻿@model OrderVM
+
+
+
+<div class="container">
+    <h3>New Order</h3><hr />
+    <h4>Item(s)</h4>
+    @foreach (var orderItem in Model.OrderItemsVM)
+    {
+        <div style="display:flex; gap: 20px">
+            <div><img width="50px" height="70px" src="~/images/Prod_Id_@orderItem.ProductId/@orderItem.ProductImage" /></div>
+            <div>
+                <p>@orderItem.ProductTitle</p>
+                <p>@orderItem.ProductBrand</p>
+                <p>EGP @orderItem.Price</p>
+            </div>
+        </div>
+    }
+    <h4>Address</h4>
+    @foreach(var address in Model.Addresses)
+    {
+        <input type="checkbox" /> <small>@address.FullName: @address.City.Name, @address.NearestLandMark   -       EDIT</small>
+
+        <br />
+
+    }
+    <p>+ New Address</p>
+    <h4>Payment Method</h4>
+
+    <input type="checkbox" value="COD" asp-for="PaymentMethod"/> <small>COD</small><br />
+    <input type="checkbox" value="VISA" asp-for="PaymentMethod"/> <small>VISA/MASTERCARD</small><br />
+    <hr />
+    <h4>Coupon</h4>
+    <input class="form-control" type="text" placeholder="Example: SUMMER24" /> 
+    <button class="btn btn-outline-secondary">Apply</button>
+    <small class="text-muted">You can only use one coupon.</small>
+    @* <h4>Order Summary</h4>
+    <hr />
+    <p>SubTotal: 12,000</p>
+    <p>COD: 15</p>
+    <p>VAT 14%: 203</p>
+    <p>Promotion: -40</p>
+    <p class="fw-bold">TOTAL: 12178</p>
+    <hr />
+    <button class="btn btn-outline-success">Place Order</button> *@
+</div>

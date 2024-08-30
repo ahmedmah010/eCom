@@ -25,7 +25,5 @@ namespace eCom.Models
         public virtual Product? Product { get; set; }
         public virtual Order Order { get; set; }
 
-        //Helper methods [Not Mapped To DB]
-        public float SubTotal => Price * Quantity;
     }
 }
