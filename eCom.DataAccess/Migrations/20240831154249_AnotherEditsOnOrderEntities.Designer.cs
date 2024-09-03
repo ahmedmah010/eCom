@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCom.DataAccess.Data;
 
@@ -11,9 +12,11 @@ using eCom.DataAccess.Data;
 namespace eCom.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240831154249_AnotherEditsOnOrderEntities")]
+    partial class AnotherEditsOnOrderEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -333,11 +336,11 @@ namespace eCom.DataAccess.Migrations
                     b.Property<bool>("IsSingleUse")
                         .HasColumnType("bit");
 
-                    b.Property<float>("MaxDiscountAmount")
-                        .HasColumnType("real");
+                    b.Property<decimal>("MaxDiscountAmount")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("MinPurchaseAmount")
-                        .HasColumnType("real");
+                    b.Property<decimal>("MinPurchaseAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UsageCount")
                         .HasColumnType("int");

@@ -14,6 +14,5 @@ namespace eCom.Models.ViewModels
         public string ProductImage { get; set; }
         public string ProductBrand { get; set; }
         public int Quantity { get; set; }
-        public float SubTotal => Price * Quantity;
     }
 }

@@ -9,7 +9,9 @@ namespace eCom.Models.ViewModels
     public class OrderSummaryVM
     {
         public List<Tax>? AppliedTaxes { get; set; } = new List<Tax>();
-        public float TotalPrice { get; set; }
-        public float Discount { get; set; }
+        public float TotalPriceAfter { get; set; } = 0;
+        public float TotalPriceBefore { get; set; } = 0;
+        public float Discount { get; set; } = 0;
+        public float DeliveryFees { get; set; } = 0;
     }
 }

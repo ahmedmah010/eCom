@@ -2,6 +2,7 @@
 using eCom.Models;
 using eCom.Models.ViewModels;
 using eCom.Utilities;
+using eCom.Utilities.ExtentionMethods;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -45,7 +46,9 @@ namespace eComApp.Areas.Customer.Controllers
             }
             OrderVM orderVM = new OrderVM();
             orderVM.Addresses = _addressRepo.Where(add=>add.UserId == _userManager.GetUserId(User)).ToList();
-            foreach(var cartItem in _userCartItemRepo.GetAll().ToList())
+            List<UserCartItem> cartItems = _userCartItemRepo.Where(item => item.UserId == _userManager.GetUserId(User)).ToList();
+            HttpContext.Session.SetObjectToJson("cartItems",cartItems); //this is a helper method. 
+            foreach (var cartItem in cartItems)
             {
                 Product prod = _productRepo.Get(p=>p.Id == cartItem.ProductId);
 
@@ -53,5 +56,104 @@ namespace eComApp.Areas.Customer.Controllers
             }
             return View(orderVM);
         }
+        private float CartTotalPrice()
+        {
+            float totalPrice = 0;
+            List<UserCartItem> cartItems = HttpContext.Session.GetObjectFromJson<List<UserCartItem>>("cartItems");
+            //_userCartItemRepo.Where(item => item.UserId == _userManager.GetUserId(User)).ToList();
+            foreach (var cartItem in cartItems)
+            {
+                Product prod = _productRepo.Get(p => p.Id == cartItem.ProductId);
+                totalPrice += prod.CurrentPrice * cartItem.Qty;
+            }
+            return totalPrice;
+        }
+        public IActionResult OrderSummaryPV(OrderVM orderVM)
+        {
+            if(orderVM.PaymentMethod != null && orderVM.ChosenAddressId != 0)
+            {
+                OrderSummaryVM orderSummaryVM = new OrderSummaryVM();
+                orderSummaryVM.DeliveryFees = _addressRepo.Get(add=>add.Id==orderVM.ChosenAddressId).City.DeliveryFee;
+                orderSummaryVM.TotalPriceBefore = CartTotalPrice();
+                if(orderVM.PaymentMethod == PaymentMethod.COD)
+                {
+                    Tax tax = _taxRepo.Get(tax => tax.Name == "COD");
+                    orderSummaryVM.AppliedTaxes.Add(tax);
+                    orderSummaryVM.TotalPriceAfter += tax.Amount;
+                }
+                foreach(var tax in _taxRepo.GetAll().ToList())
+                {
+                    if (tax.Name != "COD")
+                    {
+                        orderSummaryVM.AppliedTaxes.Add(tax);
+                        if (tax.TaxType == TaxType.Percentage)
+                        {
+                            orderSummaryVM.TotalPriceAfter += (float)(tax.Amount/100.0) * orderSummaryVM.TotalPriceBefore;
+                        }
+                        else
+                        {
+                            orderSummaryVM.TotalPriceAfter += tax.Amount;
+                        }
+                       
+                    }
+                }
+                if (orderVM.Coupon != null)
+                {
+                    Coupon coupon = _couponRepo.Get(coupon => coupon.Code == orderVM.Coupon);
+                    if (coupon != null)
+                    {
+                        if(coupon.DiscountType == DiscountType.Percentage)
+                        {
+                            orderSummaryVM.Discount = orderSummaryVM.TotalPriceBefore * (coupon.DiscountValue/100);
+                        }
+                        else
+                        {
+                            orderSummaryVM.Discount = coupon.DiscountValue;
+                        }
+                    }
+                }
+                orderSummaryVM.TotalPriceAfter += orderSummaryVM.TotalPriceBefore - orderSummaryVM.Discount + orderSummaryVM.DeliveryFees;
+                return PartialView("~/Areas/Customer/Views/Order/PartialViews/OrderSummaryPV.cshtml", orderSummaryVM);
+            }
+            return Content("");
+            
+        }
+        private bool IsCouponValid(string code)
+        {
+            Coupon coupon = _couponRepo.Get(c=>c.Code == code);
+            if (coupon != null)
+            {
+                HashSet<UserCartItem> carItems = HttpContext.Session.GetObjectFromJson<HashSet<UserCartItem>>("cartItems");
+                bool validForCategory = false, validForProduct = false;
+                float subTotal = 0;
+                foreach (UserCartItem item in carItems)
+                {
+                    Product p = _productRepo.Get(p => p.Id == item.ProductId);
+                    subTotal += (p.CurrentPrice * item.Qty);
+                    if (!validForCategory)
+                    {
+                        validForCategory = coupon.ApplicableCategories.Any(cat=>cat==p.Category);
+                     
+                    }
+                    if(!validForProduct)
+                    {
+                        validForProduct = coupon.ApplicableProducts.Any(prod => prod == p);
+                    }
+                }
+                if(coupon.ExpirationDate>=DateTime.Now && coupon.MinPurchaseAmount<=subTotal && (validForProduct || validForCategory))
+                {  return true; }
+            }
+            return false;
+        }
+        public IActionResult ValidateCoupon(string code)
+        {
+            bool Res = IsCouponValid(code);
+            if (Res)
+            {
+                return Content("true");
+            }
+            return Content("false");
+        }
+
     }
 }

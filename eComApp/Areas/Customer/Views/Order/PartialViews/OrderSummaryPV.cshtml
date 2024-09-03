@@ -1,0 +1,17 @@
+﻿@model OrderSummaryVM
+
+<h4>Order Summary</h4>
+<hr />
+<p>SubTotal: @Model.TotalPriceBefore</p>
+@foreach(var tax in Model.AppliedTaxes)
+{
+    <p>@tax.Name: @tax.Amount @(tax.TaxType==TaxType.Percentage?"%":"")</p>
+}
+@if (Model.Discount != 0)
+{
+    <p>Promotion: -@Model.Discount</p>
+}
+<p>Delivery Fees: @Model.DeliveryFees</p>
+<p class="fw-bold">TOTAL: @Model.TotalPriceAfter</p>
+<hr />
+<button class="btn btn-outline-success">Place Order</button> 

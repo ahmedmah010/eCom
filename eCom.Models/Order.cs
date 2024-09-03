@@ -17,10 +17,11 @@ namespace eCom.Models
         public string PaymentMethod { get; set; }
         [ForeignKey("User")]
         public string UserId {  get; set; }
-        public string? CouponName {  get; set; }
-        public float? CouponValue {  get; set; }
         public Address Address { get; set; }
         public float TotalPrice {  get; set; }
+        public float DeliveryFees {  get; set; }
+        public float Discount {  get; set; }
+        public float TotalTaxes {  get; set; }
 
         //Navigation Properties
         public virtual AppUser User { get; set; }

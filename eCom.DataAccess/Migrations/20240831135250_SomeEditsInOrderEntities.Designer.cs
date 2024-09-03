@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCom.DataAccess.Data;
 
@@ -11,9 +12,11 @@ using eCom.DataAccess.Data;
 namespace eCom.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240831135250_SomeEditsInOrderEntities")]
+    partial class SomeEditsInOrderEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -333,11 +336,11 @@ namespace eCom.DataAccess.Migrations
                     b.Property<bool>("IsSingleUse")
                         .HasColumnType("bit");
 
-                    b.Property<float>("MaxDiscountAmount")
-                        .HasColumnType("real");
+                    b.Property<decimal>("MaxDiscountAmount")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("MinPurchaseAmount")
-                        .HasColumnType("real");
+                    b.Property<decimal>("MinPurchaseAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UsageCount")
                         .HasColumnType("int");
@@ -361,12 +364,6 @@ namespace eCom.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<float>("DeliveryFees")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Discount")
-                        .HasColumnType("real");
-
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
@@ -379,9 +376,6 @@ namespace eCom.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("TotalPrice")
-                        .HasColumnType("real");
-
-                    b.Property<float>("TotalTaxes")
                         .HasColumnType("real");
 
                     b.Property<string>("UserId")
